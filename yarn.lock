@@ -4847,6 +4847,11 @@ identity-obj-proxy@^3.0.0:
   dependencies:
     harmony-reflect "^1.4.6"
 
+iframe@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iframe/-/iframe-1.0.0.tgz#58e74822b178a0579d09cd169640fb9537470ef5"
+  integrity sha1-WOdIIrF4oFedCc0WlkD7lTdHDvU=
+
 ignore@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz#750e3db5862087b4737ebac8207ffd1ef27b25fc"

@@ -2,7 +2,7 @@ import React from "react";
 const Page1 = () => {
     return (
         <div>
-            <h1> This is page 1</h1>
+            <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
         </div>
     );
 };
