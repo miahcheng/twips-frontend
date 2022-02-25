@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import React from "react";
 import mockData from "../mockData/MockData.tsx";
+import colors from "../style/colors.tsx"
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -19,7 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         card: {
             height: '100vh',
-            paddingTop: '5vh',
             marginLeft: '10%',
             marginRight: '10%',
             width: '80%',
@@ -40,7 +40,7 @@ const Page1 = () => {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
-            <CardHeader title='Profile Page' />
+            <CardHeader  sx={{  backgroundColor: colors.secondary}} title='Profile Page' />
             <Box sx={{ position: 'relative' }}>
                 <CardMedia
                     component="img"
@@ -63,12 +63,12 @@ const Page1 = () => {
                     <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
                 </Box>
             </Box>
-            <CardContent>
+            <CardContent >
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={6}>
+                    <Grid item xs={4}      sx={{backgroundColor: colors.secondary}}>
                         <Typography variant="h3"> About you</Typography>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={8}>
                     </Grid>
                     <Grid item xs={6}>
                         <Typography> First Name</Typography>

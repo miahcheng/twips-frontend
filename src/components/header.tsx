@@ -11,6 +11,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import { NavLink } from 'react-router-dom';
+import colors from '../style/colors.tsx';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
         fullList: {
             width: 'auto',
         },
+        appBar: {
+            backgroundColor: colors.secondary,
+        }
     }),
 );
 const Header = () => {
@@ -45,9 +49,9 @@ const Header = () => {
     };
     return (
         <div>
-            <AppBar position="static">
+            <AppBar color='primary' position="static">
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
+                    <IconButton edge="start" color='inherit' aria-label="menu" onClick={toggleDrawer(true)}>
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

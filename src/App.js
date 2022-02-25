@@ -7,16 +7,29 @@ import Page1 from "./containers/page1.tsx"
 import Login from "./containers/login.tsx";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
+import colors from "./style/colors.tsx"
 const useStyles = makeStyles((theme) =>
     createStyles({
         body: {
-          backgroundColor: 'gray'
+          backgroundColor: colors.background,
+
         }
     }),
 );
+const rootTheme = createTheme({
+  palette: {
+    primary: {
+      main: colors.primary,
+    },
+    secondary: {
+      main:colors.secondary,
+    }
+  },
+});
 export default function App() {
   const classes = useStyles();
   return (
+    <ThemeProvider theme={rootTheme}>
     <div className={classes.body}>
       <BrowserRouter>
         <Header />
@@ -26,5 +39,6 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </div>
+    </ThemeProvider>
   );
 }
