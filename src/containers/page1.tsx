@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         avatar: {
             display: 'flex', justifyContent: 'center'
+
         },
     })
 );
@@ -40,7 +41,7 @@ const Page1 = () => {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
-            <CardHeader  sx={{  backgroundColor: colors.secondary}} title='Profile Page' />
+            <CardHeader sx={{ backgroundColor: colors.secondary }} title='Profile Page' />
             <Box sx={{ position: 'relative' }}>
                 <CardMedia
                     component="img"
@@ -59,13 +60,20 @@ const Page1 = () => {
                         padding: '10px',
                     }}
                 >
-                    <Typography variant="h5">{mockData.user.TwitchName}</Typography>
-                    <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid item xs={6}>
+                            <Typography variant="h5">{mockData.user.TwitchName}</Typography>
+                            <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Avatar sx={{ width: 100, height: 100 }} className={classes.avatar} src="/profile.jpeg" ></Avatar>
+                        </Grid>
+                    </Grid>
                 </Box>
             </Box>
             <CardContent >
                 <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={4}      sx={{backgroundColor: colors.secondary}}>
+                    <Grid item xs={4} sx={{ backgroundColor: colors.secondary }}>
                         <Typography variant="h3"> About you</Typography>
                     </Grid>
                     <Grid item xs={8}>
