@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 import { Typography } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -23,19 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
 const Home = () => {
     const classes = useStyles();
     return (
-        <Grid container spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            style={{ minHeight: '100vh' }}>
-            <Grid item xs={12}>
-                <Box bgcolor="purple" color="white" display="flex" justifyContent="center" alignItems="center">
-                    <Typography>
-                        Welcome to Twips
-                    </Typography>
-                </Box>
-            </Grid>
-        </Grid>
+        <div>
+            <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+        </div>
     );
 };
 
