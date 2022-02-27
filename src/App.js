@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./containers/home.tsx";
 import Header from "./components/header.tsx";
-import Page1 from "./containers/page1.tsx"
+import Page1 from "./containers/page1.tsx";
+import Page2 from "./containers/page2.tsx";
 import Login from "./containers/login.tsx";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
@@ -36,6 +37,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/page1" element={<Page1 />} />
+          <Route exact path="/page2" element={<Page2 />} />
         </Routes>
       </BrowserRouter>
     </div>

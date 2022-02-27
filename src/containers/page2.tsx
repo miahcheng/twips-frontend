@@ -37,22 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const Home = () => {
+const Page2 = () => {
     const classes = useStyles();
     return (
         <div>
-            <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
-            {/* <Grid container>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-            </Grid> */}
             <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'row' }}>
                 <div className={classes.clipcard}>
                     <Clipcard />
@@ -79,4 +67,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Page2;

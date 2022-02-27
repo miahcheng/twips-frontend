@@ -77,6 +77,11 @@ const Header = () => {
                                 <ListItemText primary={'Page1'} />
                             </MenuItem>
                         </NavLink>
+                        <NavLink to={'/page2'} style={{ textDecoration: 'none' }}>
+                            <MenuItem>
+                                <ListItemText primary={'Page2'} />
+                            </MenuItem>
+                        </NavLink>
                     </MenuList>
                 </div>
             </Drawer>

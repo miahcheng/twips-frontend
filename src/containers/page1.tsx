@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Page1 = () => {
     const classes = useStyles();
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} variant='outlined'>
             <CardHeader sx={{ backgroundColor: colors.secondary }} title='Profile Page' />
             <Box sx={{ position: 'relative' }}>
                 <CardMedia
