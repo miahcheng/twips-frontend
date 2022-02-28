@@ -4,6 +4,8 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
 import Clipcard from "../components/clipcard.tsx";
+import Categoryheader from "../components/categoryheader.tsx"
+import { Category } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -41,18 +43,8 @@ const Home = () => {
     const classes = useStyles();
     return (
         <div>
-            <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
-            {/* <Grid container>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-                <Grid className={classes.container} item xs={4} >
-                    <Clipcard />
-                </Grid>
-            </Grid> */}
+            <Categoryheader />
+            {/* <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe> */}
             <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'row' }}>
                 <div className={classes.clipcard}>
                     <Clipcard />
