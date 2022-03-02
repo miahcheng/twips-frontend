@@ -43,7 +43,6 @@ const Home = () => {
     const classes = useStyles();
     return (
         <div>
-            <Categoryheader />
             {/* <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe> */}
             <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'column' }}>
                 <div className={classes.clipcard}>
