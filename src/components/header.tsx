@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: 'auto',
         },
         appBar: {
-            backgroundColor: colors.secondary,
+            backgroundColor: colors.third,
         }
     }),
 );
@@ -69,17 +69,17 @@ const Header = () => {
                     <MenuList>
                         <NavLink to={'/'} style={{ textDecoration: 'none' }}>
                             <MenuItem>
-                                <ListItemText primary={'Home'} />
+                                <ListItemText primary={'Your Feed'} />
                             </MenuItem>
                         </NavLink>
                         <NavLink to={'/page1'} style={{ textDecoration: 'none' }}>
                             <MenuItem>
-                                <ListItemText primary={'Page1'} />
+                                <ListItemText primary={'Profile'} />
                             </MenuItem>
                         </NavLink>
                         <NavLink to={'/page2'} style={{ textDecoration: 'none' }}>
                             <MenuItem>
-                                <ListItemText primary={'Page2'} />
+                                <ListItemText primary={'Recommended'} />
                             </MenuItem>
                         </NavLink>
                     </MenuList>

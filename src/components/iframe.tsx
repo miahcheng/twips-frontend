@@ -12,10 +12,10 @@ const Iframe = (source) => {
         <div className="col-md-12">
             <div className="emdeb-responsive">
                 <iframe
-                    src="https://player.twitch.tv/?video=v40464143&parent=streamernews.example.com&autoplay=false"
+                    src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost"
                     height="720"
                     width="1280"
-                    allowfullscreen="true">
+                    allowFullScreen={true}>
                 </iframe>
             </div>
         </div>

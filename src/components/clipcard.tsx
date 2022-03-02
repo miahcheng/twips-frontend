@@ -9,12 +9,12 @@ import Typography from '@mui/material/Typography';
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx"
+import iframe from './iframe.tsx';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         card: {
-            borderColorProp: colors.secondary,
-            borderRadius: 10,
+            margin: 50,
         }
     })
 );
@@ -23,25 +23,21 @@ const Clipcard = () => {
     return (
         <Box sx={{borderColor: colors.secondary, border: 1}}>
             <Card className={classes.card}>
-            <CardHeader sx={{ backgroundColor: colors.secondary }} title='Profile Page' />
+            <CardHeader sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' />
             <CardMedia
-                component="img"
-                height="200"
-                image='/background.jpeg'
-                alt="green iguana"
+                component = {iframe}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Lizard
+                    Clip Name
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    Clip description goes here. There may be additional information regarding the clip
+                    creator and what stream the clip originates from.
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
         </Box>
