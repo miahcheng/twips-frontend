@@ -24,6 +24,9 @@ const rootTheme = createTheme({
     },
     secondary: {
       main:colors.secondary,
+    },
+    white: {
+      main: colors.white,
     }
   },
 });

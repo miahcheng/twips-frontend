@@ -16,7 +16,6 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import Cliptoolbar from "./clipcardtoolbar.tsx";
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,38 +44,28 @@ const theme = createTheme({
         },
     },
 });
-const Clipcard = () => {
+const Cliptoolbar = () => {
     const classes = useStyles();
-    const headerTitle = (<div> <Typography gutterBottom variant="h5" component="div">
-        Clip Name
-    </Typography>
-        <Typography variant="body2" color="text.primary">
-            Clip description goes here. There may be additional information regarding the clip
-            creator and what stream the clip originates from.
-        </Typography> </div>)
     return (
-        <Box>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item className={classes.card} xs={3}>
+        <ThemeProvider theme={theme}>
+            <Box>
+                <Grid container rowSpacing={1}>
+                    <Grid item xs={3}>
+                    </Grid>
+                    <Grid item xs={2}>
+                        <Button className={classes.icon} size='large' variant="contained" >
+                            <KeyboardArrowUpOutlinedIcon fontSize="large" />
+                        </Button>
+                    </Grid>
+                    <Grid item xs={2}>
+                    <Button className={classes.icon} size='large' variant="contained" >
+                            <KeyboardArrowDownOutlinedIcon fontSize="large" />
+                        </Button>
+                    </Grid>
                 </Grid>
-                <Grid item className={classes.card} xs={6}>
-                    <Card>
-                        <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} />
-                        <CardContent sx={{ backgroundColor: colors.primary }}>
-                            <div className={classes.video}>
-                                {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost')}
-                            </div>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item className={classes.card} xs={3}>
-                </Grid>
-                <Grid item className={classes.card} xs={12}>
-                    <Cliptoolbar />
-                </Grid>
-            </Grid>
-        </Box>
+            </Box>
+        </ThemeProvider >
     )
 };
 
-export default Clipcard
+export default Cliptoolbar;
