@@ -3,7 +3,7 @@ import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, 
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
-import Clipcard from "../components/clipcard.tsx";
+import Categorycard from "../components/categorycard.tsx";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,6 +29,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: '40px',
             marginTop: '40px',
             marginBottom: '40px',
+            display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
+            flexWrap: 'wrap',
         },
         clipcard: {
             marginLeft: '40px',
@@ -41,26 +43,24 @@ const Page2 = () => {
     const classes = useStyles();
     return (
         <div>
-            <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'row' }}>
+            <Box className={classes.flexbox}>
                 <div className={classes.clipcard}>
-                    <Clipcard />
+                    <Categorycard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Clipcard />
+                    <Categorycard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Clipcard />
-                </div>
-            </Box>
-            <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'row' }}>
-                <div className={classes.clipcard}>
-                    <Clipcard />
+                    <Categorycard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Clipcard />
+                    <Categorycard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Clipcard />
+                    <Categorycard />
+                </div>
+                <div className={classes.clipcard}>
+                    <Categorycard />
                 </div>
             </Box>
         </div>

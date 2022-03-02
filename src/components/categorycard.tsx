@@ -9,34 +9,38 @@ import Typography from '@mui/material/Typography';
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx"
-import iframe from './iframe.tsx';
 
-// card for home page
+// Card format for the category view page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         card: {
-            margin: 50,
+            margin: 25,
+            marginBottom: 50,
+            width: 475, // should not hard code this
+            height: 400, // should not hard code this
         }
     })
 );
-const Clipcard = () => {
+const Categorycard = () => {
     const classes = useStyles();
     return (
         <Box>
             <Card className={classes.card}>
-                <CardHeader sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' />
-                <CardMedia
-                    component={iframe}
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Clip Name
+                {/* <CardHeader sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' /> */}
+                <CardContent sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' >
+                    <Typography variant="h5" component="div">
+                        Streamer Name
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Clip description goes here. There may be additional information regarding the clip
-                        creator and what stream the clip originates from.
+                    <Typography component="div">
+                        Category + Video Tags
                     </Typography>
                 </CardContent>
+                <CardMedia
+                    component="img"
+                    height="270" // should not hard code this
+                    image='/background.jpeg'
+                    alt="green iguana"
+                />
                 <CardActions>
                     <Button size="small">Share</Button>
                 </CardActions>
@@ -45,4 +49,4 @@ const Clipcard = () => {
     )
 };
 
-export default Clipcard
+export default Categorycard
