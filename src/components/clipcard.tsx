@@ -45,12 +45,13 @@ const theme = createTheme({
         },
     },
 });
+
 const Clipcard = () => {
     const classes = useStyles();
-    const headerTitle = (<div> <Typography gutterBottom variant="h5" component="div">
+    const headerTitle = (<div> <Typography color="common.white" gutterBottom variant="h5" component="div">
         Clip Name
     </Typography>
-        <Typography variant="body2" color="text.primary">
+        <Typography variant="body2" color="common.white">
             Clip description goes here. There may be additional information regarding the clip
             creator and what stream the clip originates from.
         </Typography> </div>)
@@ -64,7 +65,7 @@ const Clipcard = () => {
                         <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} />
                         <CardContent sx={{ backgroundColor: colors.primary }}>
                             <div className={classes.video}>
-                                {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost')}
+                                {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost&autoplay=true&controls=false')}
                             </div>
                         </CardContent>
                     </Card>
