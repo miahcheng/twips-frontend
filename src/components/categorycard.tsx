@@ -25,9 +25,9 @@ const Categorycard = () => {
     const classes = useStyles();
     return (
         <Box>
-            <Card className={classes.card}>
+            <Card className={classes.card} >
                 {/* <CardHeader sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' /> */}
-                <CardContent sx={{ backgroundColor: colors.secondary }} title='Twitch Streamer Name' >
+                <CardContent title='Twitch Streamer Name' >
                     <Typography variant="h5" component="div">
                         Streamer Name
                     </Typography>
@@ -41,9 +41,6 @@ const Categorycard = () => {
                     image='/background.jpeg'
                     alt="green iguana"
                 />
-                <CardActions>
-                    <Button size="small">Share</Button>
-                </CardActions>
             </Card>
         </Box>
     )

@@ -7,5 +7,6 @@ const colors = {
     negative: '#FF3333',
     background: '#1E1E1E',
     white: '#F5F5F5',
+    lightbackground: "#474747"
 }
 export default colors;

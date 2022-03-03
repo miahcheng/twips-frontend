@@ -12,10 +12,12 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx"
 import Iframe from './iframe.tsx';
 import Stack from '@mui/material/Stack';
+import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import ButtonGroup from '@mui/material/ButtonGroup';
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -27,8 +29,21 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
         },
         icon: {
+        },
+        icon2: {
             height: 75,
-            width: 75
+            width: 75,
+        },
+        box: {
+            backgroundColor: colors.lightbackground,
+            display: 'flex'
+        },
+        buttongroup: {
+            backgroundColor: colors.lightbackground,
+            marginLeft: '50',
+        },
+        griditem: {
+            backgroundColor: colors.lightbackground,
         }
     })
 );
@@ -37,8 +52,8 @@ const theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    color: colors.white,
-                    backgroundColor: colors.secondary
+                    color: colors.secondary,
+                    backgroundColor: colors.lightbackground,
                 },
             },
         },
@@ -49,17 +64,41 @@ const Cliptoolbar = () => {
     return (
         <ThemeProvider theme={theme}>
             <Box>
-                <Grid container rowSpacing={1}>
+                <Grid container
+                >
+                     <ThemeProvider theme={theme}></ThemeProvider>
                     <Grid item xs={3}>
                     </Grid>
-                    <Grid item xs={2}>
-                        <Button className={classes.icon} size='large' variant="contained" >
-                            <KeyboardArrowUpOutlinedIcon fontSize="large" />
+                    <Grid item className={classes.griditem} xs={0.33} align="center">
+                        <Button className={classes.buttongroup} style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>
+                            <KeyboardArrowUpOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
-                    <Grid item xs={2}>
-                    <Button className={classes.icon} size='large' variant="contained" >
-                            <KeyboardArrowDownOutlinedIcon fontSize="large" />
+                    <Grid item
+                        className={classes.griditem} xs={0.33} align="center">
+                        <Typography color='white'>
+                            50
+                        </Typography>
+                    </Grid>
+                    <Grid item className={classes.griditem} xs={0.33} align="center">
+                        <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>
+                            <KeyboardArrowDownOutlinedIcon fontSize="small" />
+                        </Button>
+                    </Grid>
+                    <Grid item xs={0.33} align="center">
+                        <Button
+                            variant='outlined'
+                            style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}
+                        >
+                            <KeyboardArrowDownOutlinedIcon fontSize="small" />
+                        </Button>
+                    </Grid>
+                    <Grid item xs={0.33}>
+                        <Button
+                            variant='outlined'
+                            style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}
+                        >
+                            <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
                 </Grid>

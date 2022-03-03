@@ -3,7 +3,9 @@ import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, 
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
-import Categorycard from "../components/categorycard.tsx";
+import Clipcard from "../components/clipcard.tsx";
+import Categoryheader from "../components/categoryheader.tsx"
+import { Category } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,8 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: '40px',
             marginTop: '40px',
             marginBottom: '40px',
-            display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
-            flexWrap: 'wrap',
         },
         clipcard: {
             marginLeft: '40px',
@@ -39,32 +39,35 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const Page2 = () => {
+const Feed= () => {
     const classes = useStyles();
     return (
         <div>
-            <Box className={classes.flexbox}>
+            {/* <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe> */}
+            <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'column' }}>
                 <div className={classes.clipcard}>
-                    <Categorycard />
+                    <Clipcard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Categorycard />
+                    <Clipcard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Categorycard />
+                    <Clipcard />
+                </div>
+            </Box>
+            <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'column' }}>
+                <div className={classes.clipcard}>
+                    <Clipcard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Categorycard />
+                    <Clipcard />
                 </div>
                 <div className={classes.clipcard}>
-                    <Categorycard />
-                </div>
-                <div className={classes.clipcard}>
-                    <Categorycard />
+                    <Clipcard />
                 </div>
             </Box>
         </div>
     );
 };
 
-export default Page2;
+export default Feed;

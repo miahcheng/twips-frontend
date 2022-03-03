@@ -40,59 +40,67 @@ const useStyles = makeStyles((theme: Theme) =>
 const Page1 = () => {
     const classes = useStyles();
     return (
-        <Card className={classes.card} variant='outlined'>
-            <CardHeader sx={{ backgroundColor: colors.secondary }} title='Profile Page' />
-            <Box sx={{ position: 'relative' }}>
-                <CardMedia
-                    component="img"
-                    height="350"
-                    image='/background.jpeg'
-                    alt="Background"
-                />
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        bgcolor: 'rgba(0, 0, 0, 0.54)',
-                        color: 'white',
-                        padding: '10px',
-                    }}
-                >
-                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={6}>
-                            <Typography variant="h5">{mockData.user.TwitchName}</Typography>
-                            <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
+        <Container
+            style={{
+                border: "solid",
+                minWidth: "100%",
+                height: "100vh",
+            }}
+        >
+            <Card className={classes.card} variant='outlined'>
+                <CardHeader sx={{ backgroundColor: colors.secondary }} title='Profile Page' />
+                <Box sx={{ position: 'relative' }}>
+                    <CardMedia
+                        component="img"
+                        height="350"
+                        image='/background.jpeg'
+                        alt="Background"
+                    />
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 0,
+                            width: '100%',
+                            bgcolor: 'rgba(0, 0, 0, 0.54)',
+                            color: 'white',
+                            padding: '10px',
+                        }}
+                    >
+                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid item xs={6}>
+                                <Typography variant="h5">{mockData.user.TwitchName}</Typography>
+                                <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Avatar sx={{ width: 100, height: 100 }} className={classes.avatar} src="/profile.jpeg" ></Avatar>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Avatar sx={{ width: 100, height: 100 }} className={classes.avatar} src="/profile.jpeg" ></Avatar>
-                        </Grid>
-                    </Grid>
+                    </Box>
                 </Box>
-            </Box>
-            <CardContent >
-                <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={4} sx={{ backgroundColor: colors.secondary }}>
-                        <Typography variant="h3"> About you</Typography>
+                <CardContent >
+                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                        <Grid item xs={4} sx={{ backgroundColor: colors.secondary }}>
+                            <Typography variant="h3"> About you</Typography>
+                        </Grid>
+                        <Grid item xs={8}>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography> First Name</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography> {mockData.user.FirstName} </Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography> Last Name</Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography> {mockData.user.LastName} </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={8}>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography> First Name</Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography> {mockData.user.FirstName} </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography> Last Name</Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography> {mockData.user.LastName} </Typography>
-                    </Grid>
-                </Grid>
-            </CardContent>
-        </Card >
+                </CardContent>
+            </Card >
+        </Container>
     )
 };
 
