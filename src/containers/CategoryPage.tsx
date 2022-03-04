@@ -47,8 +47,6 @@ const CategoryPage = (props) => {
     const classes = useStyles();
     const location = useLocation()
     const { name, under } = location.state
-    console.log(name);
-    console.log(under);
     return (
         <Container
             style={{
@@ -65,8 +63,7 @@ const CategoryPage = (props) => {
                     <Box className={classes.flexbox}>
                         {mockData[under][name].clips.data.map((element, i) =>
                             <div className={classes.clipcard}>
-                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={under} category={element.game_id} streamer={element.broadcaster_name}/>
-                                {console.log(element.thumbnail_url)}
+                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={under} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url}/>
                             </div>
                         )} 
                     </Box>

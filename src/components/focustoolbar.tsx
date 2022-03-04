@@ -62,19 +62,17 @@ const theme = createTheme({
         },
     },
 });
-const Cliptoolbar = () => {
+const Focustoolbar = () => {
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
             <Box>
                 <Grid container>
-                    <ThemeProvider theme={theme}></ThemeProvider>
-                    <Grid item xs={3}>
-                    </Grid>
+                    <ThemeProvider theme={theme}></ThemeProvider> 
                     <Grid item className={classes.griditem} xs={0.33} align="center">
                         <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        </Button>
+                        </Button> 
                     </Grid>
                     <Grid item
                         className={classes.griditem} xs={0.33} align="center">
@@ -109,4 +107,4 @@ const Cliptoolbar = () => {
     )
 };
 
-export default Cliptoolbar;
+export default Focustoolbar;

@@ -9,6 +9,7 @@ import Login from "./containers/login.tsx";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "./style/colors.tsx"
+import FocusView from "./containers/FocusView.tsx";
 const useStyles = makeStyles((theme) =>
     createStyles({
         body: {
@@ -43,6 +44,7 @@ export default function App() {
           <Route exact path="/" element={<Feed />} />
           <Route exact path="/page1" element={<Page1 />} />
           <Route exact path="/CategoryPage" element={<CategoryPage />} />
+          <Route exact path="/FocusView" element={<FocusView />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -19,10 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
 const Categoryheader = (input: any) => {
     const classes = useStyles();
     const { name, under } = input;
-    console.log(name);
-    console.log(under);
-    console.log(mockData['categories'])
-    console.log(typeof under)
     return (
         <Grid container
             direction="row"
