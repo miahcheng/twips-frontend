@@ -17,8 +17,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import Cliptoolbar from "./clipcardtoolbar.tsx";
-import { CardActionArea } from '@mui/material';
-import Updownbuttons from "./updownbuttons.tsx";
+import { CardActionArea, ButtonBase } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Navigation } from '@mui/icons-material';
+
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,7 +34,11 @@ const useStyles = makeStyles((theme: Theme) =>
         icon: {
             height: 75,
             width: 75
-        }
+        },
+        cardAction: {
+            display: 'block',
+            textAlign: 'initial'
+        },
     })
 );
 const theme = createTheme({
@@ -48,17 +54,23 @@ const theme = createTheme({
     },
 });
 
+const handleClick = (under, category, streamer, title, embed_url) => {
+    navigate.navigate('/FocusView', { under: under, category: category, streamer: streamer, title: title, embed_url: embed_url })
+}
+
+
 const Clipcard = (input) => {
+    const navigate = useNavigate();
     const { thumburl, title, under, category, streamer, view_count, embed_url } = input;
     const classes = useStyles();
     const headerTitle = (
         <div>
             <Typography color="common.white" gutterBottom variant="h5" component="div">
-                Clip Name
+                {title}
             </Typography>
             <Typography variant="body2" color="common.white">
-                Clip description goes here. There may be additional information regarding the clip
-                creator and what stream the clip originates from.
+                {category}
+                {streamer}
             </Typography>
         </div>)
     return (
@@ -67,24 +79,30 @@ const Clipcard = (input) => {
                 <Grid item className={classes.card} xs={3}>
                 </Grid>
                 <Grid item className={classes.card} xs={6}>
-                    <CardActionArea href='/focus'>
-                        <Card>
-                            <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} action={
-                                <ThemeProvider theme={theme}>
-                                    <Button>
-                                        Follow
-                                    </Button>
-                                </ThemeProvider>
-                            } />
-                            <CardContent sx={{ backgroundColor: colors.primary }}>
-                                <div className={classes.video}>
-                                    {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost')}
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </CardActionArea>
+                        <ButtonBase
+                            className={classes.cardAction}
+                            onClick={
+                                () => navigate('/FocusView', { state: { under: under, category: category, streamer: streamer, title: title, embed_url: embed_url } })
+                            }>
+                            <Card>
+                                <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} action={
+                                    <ThemeProvider theme={theme}>
+                                        <Button>
+                                            Follow
+                                        </Button>
+                                    </ThemeProvider>
+                                } />
+                                <CardContent sx={{ backgroundColor: colors.primary }}>
+                                    <div className={classes.video}>
+                                        {Iframe(embed_url + '&parent=localhost')}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                    </ButtonBase>
                 </Grid>
                 <Grid item className={classes.card} xs={3}>
+                </Grid>
+                <Grid item className={classes.card} xs={0.75}>
                 </Grid>
                 <Grid item className={classes.card} xs={9}>
                     <Cliptoolbar />
