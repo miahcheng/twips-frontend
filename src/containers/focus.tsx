@@ -3,24 +3,17 @@ import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, 
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
-import Categorycard from "../components/categorycard.tsx";
-import Categoryheader from "../components/categoryheader.tsx";
+import Header from "../components/header.tsx";
+import FocusCard from "../components/focuscard.tsx";
 import mockData from "../mockData/MockData";
-import { useLocation } from "react-router-dom"   
+import { useLocation} from "react-router-dom"  
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
             justifyContent: 'center',
         },
-        title: {
-            flexGrow: 1,
-        },
-        drawer: {
-            width: 300,
-        },
-        fullList: {
-            width: 'auto',
-        },
+
         container: {
             display: 'flex',
             justifyContent: 'center',
@@ -38,12 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: '40px',
             minWidth: '25%',
         },
-        root: {
-            flexGrow: 1,
-        }
+
     }),
 );
-const CategoryPage = (props) => {
+const Focus = (props) => {
     const classes = useStyles();
     const location = useLocation()
     const { name, under } = location.state
@@ -59,27 +50,12 @@ const CategoryPage = (props) => {
         >
             <Grid container>
                 <Grid item xs={12}>
-                    <Categoryheader name={name} under={under}></Categoryheader>
+                    <Header name={name} under={under}></Header>
                 </Grid>
                 <Grid item xs={12} sx={{ mt: 4 }} >
                     <Box className={classes.flexbox}>
                         <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
+                            <FocusCard />
                         </div>
                     </Box>
                 </Grid>
@@ -88,4 +64,4 @@ const CategoryPage = (props) => {
     );
 };
 
-export default CategoryPage;
+export default Focus;

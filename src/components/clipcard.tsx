@@ -17,6 +17,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import Cliptoolbar from "./clipcardtoolbar.tsx";
+import { CardActionArea } from '@mui/material';
+
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -64,20 +66,22 @@ const Clipcard = () => {
                 <Grid item className={classes.card} xs={3}>
                 </Grid>
                 <Grid item className={classes.card} xs={6}>
-                    <Card>
-                        <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} action={
-                            <ThemeProvider theme={theme}>
-                                <Button>
-                                    Follow
-                                </Button>
-                            </ThemeProvider>
-                        } />
-                        <CardContent sx={{ backgroundColor: colors.primary }}>
-                            <div className={classes.video}>
-                                {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost')}
-                            </div>
-                        </CardContent>
-                    </Card>
+                    <CardActionArea href='/focus'>
+                        <Card>
+                            <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} action={
+                                <ThemeProvider theme={theme}>
+                                    <Button>
+                                        Follow
+                                    </Button>
+                                </ThemeProvider>
+                            } />
+                            <CardContent sx={{ backgroundColor: colors.primary }}>
+                                <div className={classes.video}>
+                                    {Iframe('https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost')}
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </CardActionArea>
                 </Grid>
                 <Grid item className={classes.card} xs={3}>
                 </Grid>

@@ -24,6 +24,7 @@ import { Icon } from '@iconify/react';
 import TagIcon from '@mui/icons-material/Tag';
 import { Avatar } from '@mui/material';
 import mockData from '../mockData/MockData.tsx';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -108,7 +109,8 @@ const CategoryLink = (catname, undername) => {
             style={{ textDecoration: 'none' }}>
             <MenuItem style={{ color: colors.white }}>
                 <ListItemIcon style={{ color: colors.white }}>
-                    <Avatar src={mockData[undername][catname].img} sx={{ width: 32, height: 32 }} />
+                        <Avatar src={mockData[undername][catname].img} sx={{ width: 32, height: 32 }}  />
+                    
                 </ListItemIcon>
                 <ListItemText primary={mockData[undername][catname].name} style={{ color: colors.white }} sx={{ ml: 1 }} />
             </MenuItem>
