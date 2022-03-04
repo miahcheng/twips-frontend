@@ -6,7 +6,7 @@ import colors from "../style/colors.tsx";
 import Categorycard from "../components/categorycard.tsx";
 import Categoryheader from "../components/categoryheader.tsx";
 import mockData from "../mockData/MockData.tsx";
-import { useLocation} from "react-router-dom"   
+import { useLocation } from "react-router-dom"
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -54,7 +54,7 @@ const CategoryPage = (props) => {
             style={{
                 border: "solid",
                 minWidth: "100%",
-                height: "100vh",
+                height: "100%",
             }}
         >
             <Grid container>
@@ -62,28 +62,13 @@ const CategoryPage = (props) => {
                     <Categoryheader name={name} under={under}></Categoryheader>
                 </Grid>
                 <Grid item xs={12} sx={{ mt: 4 }} >
-                    {console.log([mockData[under][name].clips['data']].map((toclip, i) =>
-                        toclip['embed_url']
-                    ))} 
                     <Box className={classes.flexbox}>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>  
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
-                        <div className={classes.clipcard}>
-                            <Categorycard />
-                        </div>
+                        {mockData[under][name].clips.data.map((element, i) =>
+                            <div className={classes.clipcard}>
+                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={under} category={element.game_id} streamer={element.broadcaster_name}/>
+                                {console.log(element.thumbnail_url)}
+                            </div>
+                        )} 
                     </Box>
                 </Grid>
             </Grid>

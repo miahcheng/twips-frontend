@@ -64,13 +64,12 @@ const Cliptoolbar = () => {
     return (
         <ThemeProvider theme={theme}>
             <Box>
-                <Grid container
-                >
-                     <ThemeProvider theme={theme}></ThemeProvider>
+                <Grid container>
+                    <ThemeProvider theme={theme}></ThemeProvider>
                     <Grid item xs={3}>
                     </Grid>
                     <Grid item className={classes.griditem} xs={0.33} align="center">
-                        <Button className={classes.buttongroup} style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>
+                        <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
@@ -81,14 +80,14 @@ const Cliptoolbar = () => {
                         </Typography>
                     </Grid>
                     <Grid item className={classes.griditem} xs={0.33} align="center">
-                        <Button style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>
+                        <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
                     <Grid item xs={0.33} align="center">
                         <Button
                             variant='outlined'
-                            style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}
+                            style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
                         >
                             <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>
@@ -96,7 +95,7 @@ const Cliptoolbar = () => {
                     <Grid item xs={0.33}>
                         <Button
                             variant='outlined'
-                            style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}
+                            style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
                         >
                             <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>

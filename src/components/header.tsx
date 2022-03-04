@@ -208,17 +208,17 @@ const Header = () => {
                             <MenuItem style={{ color: colors.primary }}>
                                 <ListItemText primary={'Categories you follow'} />
                             </MenuItem>
-                            {[mockData.creators].map((names, i) =>
+                            {[mockData.categories].map((names, i) =>
                                 Object.keys(names).map((ogname, i) => 
-                                    CategoryLink(ogname, 'creators')
+                                    CategoryLink(ogname, 'categories')
                                 )
                             )}
                             <MenuItem style={{ color: colors.primary }}>
                                 <ListItemText primary={'Creators you follow'} />
                             </MenuItem>
-                            {[mockData.categories].map((names, i) =>
+                            {[mockData.creators].map((names, i) =>
                                 Object.keys(names).map((ogname, i) => 
-                                    CategoryLink(ogname, 'categories')
+                                    CategoryLink(ogname, 'creators')
                                 )
                             )}
                         </MenuList>
