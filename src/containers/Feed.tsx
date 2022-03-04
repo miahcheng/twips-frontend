@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const Feed= () => {
+const Feed = () => {
     const classes = useStyles();
     return (
         <div>

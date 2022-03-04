@@ -5,7 +5,7 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
 import Categorycard from "../components/categorycard.tsx";
 import Categoryheader from "../components/categoryheader.tsx";
-import mockData from "../mockData/MockData";
+import mockData from "../mockData/MockData.tsx";
 import { useLocation} from "react-router-dom"   
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -62,6 +62,9 @@ const CategoryPage = (props) => {
                     <Categoryheader name={name} under={under}></Categoryheader>
                 </Grid>
                 <Grid item xs={12} sx={{ mt: 4 }} >
+                    {console.log([mockData[under][name].clips['data']].map((toclip, i) =>
+                        toclip['embed_url']
+                    ))} 
                     <Box className={classes.flexbox}>
                         <div className={classes.clipcard}>
                             <Categorycard />
@@ -74,7 +77,7 @@ const CategoryPage = (props) => {
                         </div>
                         <div className={classes.clipcard}>
                             <Categorycard />
-                        </div>
+                        </div>  
                         <div className={classes.clipcard}>
                             <Categorycard />
                         </div>
