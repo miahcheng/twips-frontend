@@ -94,7 +94,7 @@ const Clipcard = (input) => {
                                 } />
                                 <CardContent sx={{ backgroundColor: colors.primary }}>
                                     <div className={classes.video}>
-                                        {Iframe(embed_url + '&parent=localhost' + '&parent=twips-4d764.firebaseapp.com')}
+                                        {Iframe(embed_url + '&parent=twips-4d764.firebaseapp.com')}
                                     </div>
                                 </CardContent>
                             </Card>
