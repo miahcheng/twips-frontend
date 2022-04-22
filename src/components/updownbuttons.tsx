@@ -32,12 +32,7 @@ const Updownbuttons = () => {
     return (
         <ThemeProvider theme={theme}>
             <Stack direction="column" alignItems="center" spacing={1}>
-                <Button className={classes.icon} size='large' variant="contained" >
-                    <KeyboardArrowUpOutlinedIcon fontSize="large" />
-                </Button>
-                <Button className={classes.icon} size='large' variant="contained" >
-                    <KeyboardArrowDownOutlinedIcon fontSize="large" />
-                </Button>
+
             </Stack>
         </ThemeProvider>
     )

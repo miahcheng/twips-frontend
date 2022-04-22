@@ -73,7 +73,7 @@ const Search = styled('div')(({ theme }) => ({
         width: 'auto',
     },
 }));
-const newmockData = {...mockData};
+const newmockData = { ...mockData };
 const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
@@ -100,10 +100,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const CategoryLink = (catname, undername) => {
     return (
         <NavLink
-            to={ '/CategoryPage'}
+            to={'/CategoryPage'}
             state={{
-                name:catname,
-                under:undername,
+                name: catname,
+                under: undername,
             }}
             style={{ textDecoration: 'none' }}>
             <MenuItem style={{ color: colors.white }}>
@@ -209,7 +209,7 @@ const Header = () => {
                                 <ListItemText primary={'Categories you follow'} />
                             </MenuItem>
                             {[mockData.categories].map((names, i) =>
-                                Object.keys(names).map((ogname, i) => 
+                                Object.keys(names).map((ogname, i) =>
                                     CategoryLink(ogname, 'categories')
                                 )
                             )}
@@ -217,13 +217,18 @@ const Header = () => {
                                 <ListItemText primary={'Creators you follow'} />
                             </MenuItem>
                             {[mockData.creators].map((names, i) =>
-                                Object.keys(names).map((ogname, i) => 
+                                Object.keys(names).map((ogname, i) =>
                                     CategoryLink(ogname, 'creators')
                                 )
                             )}
+                            <NavLink to={'/test'} style={{ textDecoration: 'none' }}>
+                                <MenuItem style={{ color: colors.primary }}>
+                                    <ListItemText primary={'Test Page'} />
+                                </MenuItem>
+                            </NavLink>
                         </MenuList>
                     </ThemeProvider>
-                </div>  
+                </div>
             </Drawer>
         </div>
     )

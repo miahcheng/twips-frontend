@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Feed from "./containers/Feed.tsx";
 import Header from "./components/header.tsx";
 import Page1 from "./containers/page1.tsx";
+import Test from "./containers/test.tsx";
 import CategoryPage from "./containers/CategoryPage.tsx";
 import Login from "./containers/login.tsx";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -45,6 +46,7 @@ export default function App() {
           <Route exact path="/page1" element={<Page1 />} />
           <Route exact path="/CategoryPage" element={<CategoryPage />} />
           <Route exact path="/FocusView" element={<FocusView />}/>
+          <Route exact path="/test" element={<Test />} />
         </Routes>
       </BrowserRouter>
     </div>

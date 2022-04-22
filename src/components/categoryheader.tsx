@@ -8,7 +8,7 @@ import { isNamedTupleMember } from 'typescript';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         avatar: {
-            marginLeft: '80px'
+            marginLeft: '80px' // should not hard code
         },
         profilename: {
             marginLeft: 50,
