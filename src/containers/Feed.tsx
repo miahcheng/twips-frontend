@@ -47,7 +47,7 @@ const Feed = () => {
     const combinedurls = gameurls[0][0].data.concat(gameurls[0][1].data).concat(gameurls[0][2].data).concat(streamurls[0][0].data).concat(streamurls[0][1].data).concat(streamurls[0][2].data)
     let toFeed = []
     const shuffledurls = combinedurls.sort(() => 0.5 - Math.random())
-    toFeed.push(shuffledurls.slice(0, 10))
+    toFeed.push(shuffledurls.slice(0, 100))
     return (
         <div>
             {/* <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe> */}
