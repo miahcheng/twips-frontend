@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             flexGrow: 1,
+            
         },
         drawer: {
             width: 300,
@@ -25,6 +26,12 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center',
+            width:'75vw',
+            height: '75vh'
+            
+        },
+        grid: {
+            marginTop: "55px"
         },
         flexbox: {
             width: '100%',
@@ -32,11 +39,13 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
             display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
             flexWrap: 'wrap',
+            
         },
         clipcard: {
             marginLeft: '40px',
             marginRight: '40px',
             minWidth: '25%',
+            
         },
         root: {
             flexGrow: 1,
@@ -48,18 +57,18 @@ const CategoryPage = (props) => {
     const location = useLocation()
     const { name, under } = location.state
     return (
-        <Container
+        <Container className={classes.container}
             style={{
                 border: "solid",
                 minWidth: "100%",
                 height: "100%",
             }}
         >
-            <Grid container>
+            <Grid className={classes.grid} container>
                 <Grid item xs={12}>
                     <Categoryheader name={name} under={under}></Categoryheader>
                 </Grid>
-                <Grid item xs={12} sx={{ mt: 4 }} >
+                <Grid item xs={12} container direction="row">
                     <Box className={classes.flexbox}>
                         {mockData[under][name].clips.data.map((element, i) =>
                             <div className={classes.clipcard}>

@@ -53,7 +53,7 @@ const Chatbox = (input) => {
     const classes = useStyles();
     return (
         <Box>
-           <img width={550} height={1800} src={'/chat.png'} alt="Logo" />
+           <img width={550} height={1800} src={'/comments.png'} alt="comments" />
         </Box>
     )
 };

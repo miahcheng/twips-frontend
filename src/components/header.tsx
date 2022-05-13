@@ -41,14 +41,18 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         appBar: {
             backgroundColor: colors.secondary,
+            marginBottom: "55px"
         },
         drawerHeader: {
             color: colors.primary,
-            fontSize: '24px'
+            fontSize: '24px',
         },
         drawerLink: {
             color: colors.white,
             fontSize: '24px'
+        },
+        avatar: {
+            marginTop: "2px"
         }
     }),
 );
@@ -57,6 +61,11 @@ const drawerFont = createTheme({
         fontSize: 24,
     },
 });
+
+const text = {
+    fontSize: "1vw"
+};
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -108,9 +117,9 @@ const CategoryLink = (catname, undername) => {
             style={{ textDecoration: 'none' }}>
             <MenuItem style={{ color: colors.white }}>
                 <ListItemIcon style={{ color: colors.white }}>
-                    <Avatar src={mockData[undername][catname].img} sx={{ width: 32, height: 32 }} />
+                    <Avatar src={mockData[undername][catname].img} sx={{ width: 32, height: 32 }} /> 
                 </ListItemIcon>
-                <ListItemText primary={mockData[undername][catname].name} style={{ color: colors.white }} sx={{ ml: 1 }} />
+                <ListItemText primaryTypographyProps={{ style: text }} primary={mockData[undername][catname].name} style={{ color: colors.white }} sx={{ ml: 1 }} /> 
             </MenuItem>
         </NavLink>
     )
@@ -134,7 +143,7 @@ const Header = () => {
     };
     return (
         <div>
-            <AppBar color='primary' position="static">
+            <AppBar color='primary' position="fixed">
                 <Toolbar>
                     <IconButton edge="start" color='inherit' aria-label="menu" onClick={toggleDrawer(true)}>
                         <MenuIcon />
@@ -153,7 +162,7 @@ const Header = () => {
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton
+                        {/* <IconButton
                             size="large"
                             aria-label="show 17 new notifications"
                             color="inherit"
@@ -161,16 +170,10 @@ const Header = () => {
                             <Badge color="error">
                                 <NotificationsIcon />
                             </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
+                        </IconButton> */}
+                        <NavLink to={'/test'} style={{ textDecoration: 'none' }}>
+                            <Avatar sx={{ width: 40, height: 40 }} className={classes.avatar} src={"/profile.jpeg"} ></Avatar>
+                        </NavLink>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -188,25 +191,21 @@ const Header = () => {
                 >
                     <ThemeProvider theme={drawerFont}>
                         <MenuList>
-                            <MenuItem style={{ color: colors.primary }}>
-                                <ListItemText primary={'Twips'} />
-                            </MenuItem>
+                            <NavLink to={'/'} style={{ textDecoration: 'none' }}>
+                                <MenuItem style={{ color: colors.primary }}>
+                                    <ListItemText primaryTypographyProps={{ style: text }} primary={'Twips'} />
+                                </MenuItem>
+                            </NavLink>
                             <NavLink to={'/'} style={{ textDecoration: 'none' }}>
                                 <MenuItem style={{ color: colors.white }}>
                                     <ListItemIcon style={{ color: colors.white }}>
                                         <Icon icon="fluent:target-arrow-16-filled" />
                                     </ListItemIcon>
-                                    <ListItemText primary={'Your Feed'} />
+                                    <ListItemText primaryTypographyProps={{ style: text }} primary={'Your Feed'} />
                                 </MenuItem>
                             </NavLink>
-                            <MenuItem style={{ color: colors.white }}>
-                                <ListItemIcon style={{ color: colors.white }}>
-                                    <TagIcon sx={{ p: 0 }} />
-                                </ListItemIcon>
-                                <ListItemText primary={'Recommended'} />
-                            </MenuItem>
                             <MenuItem style={{ color: colors.primary }}>
-                                <ListItemText primary={'Categories you follow'} />
+                                <ListItemText primaryTypographyProps={{ style: text }} primary={'Categories you follow'} />
                             </MenuItem>
                             {[mockData.categories].map((names, i) =>
                                 Object.keys(names).map((ogname, i) =>
@@ -214,18 +213,13 @@ const Header = () => {
                                 )
                             )}
                             <MenuItem style={{ color: colors.primary }}>
-                                <ListItemText primary={'Creators you follow'} />
+                                <ListItemText primaryTypographyProps={{ style: text }} primary={'Creators you follow'} />
                             </MenuItem>
                             {[mockData.creators].map((names, i) =>
                                 Object.keys(names).map((ogname, i) =>
                                     CategoryLink(ogname, 'creators')
                                 )
                             )}
-                            <NavLink to={'/test'} style={{ textDecoration: 'none' }}>
-                                <MenuItem style={{ color: colors.primary }}>
-                                    <ListItemText primary={'Test Page'} />
-                                </MenuItem>
-                            </NavLink>
                         </MenuList>
                     </ThemeProvider>
                 </div>
