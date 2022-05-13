@@ -82,7 +82,7 @@ const Test = () => {
                     </Typography>
                     <Box sx={{ p: 1 }}></Box>
                     <Typography variant="body1" style={{color: 'white'}}>
-                        I indulge in a lot of Twitch content pepehands
+                        I indulge in a lot of Twitch
                     </Typography>
                 </CardContent>
             </Card>

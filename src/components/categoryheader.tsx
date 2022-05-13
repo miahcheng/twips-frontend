@@ -33,7 +33,7 @@ const Categoryheader = (input: any) => {
             <Grid item xs={5}>
                 <div className={classes.profilename}>
                     <Typography variant="h4">{mockData[under][name].name}</Typography>
-                    <Typography variant="body2">{mockData[under][name].followers}</Typography>
+                    <Typography variant="body2">{mockData[under][name].followers} Followers</Typography>
                     <Button sx={{mt:1, backgroundColor: colors.secondary, color: colors.white}}>Follow</Button>
                 </div>
             </Grid>
