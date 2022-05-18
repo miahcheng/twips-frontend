@@ -47,7 +47,7 @@ const Focuscard = (input) => {
         <Box >
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={9.5}>
-                    <CardActionArea href='/focus'>
+                    <CardActionArea >
                         <Card sx={{ height: '100%' }}>
                             <CardHeader sx={{ backgroundColor: colors.primary }} title={title} action={
                                 <ThemeProvider theme={theme}>
