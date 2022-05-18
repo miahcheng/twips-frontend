@@ -7,6 +7,8 @@ import Clipcard from "../components/clipcard.tsx";
 import Categoryheader from "../components/categoryheader.tsx"
 import { Category } from "@mui/icons-material";
 import mockData from "../mockData/MockData.tsx";
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -26,17 +28,24 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center',
+            width:'100vw',
+            height: '100vh'
+            
         },
         flexbox: {
-            marginLeft: '40px',
-            marginRight: '40px',
-            marginTop: '40px',
-            marginBottom: '40px',
+            scrollSnapType: 'y mandatory',
+            overflowY: "scroll",
+            width:'100vw',
+            height: '100vh'
         },
         clipcard: {
-            marginLeft: '40px',
-            marginRight: '40px',
-            minWidth: '25%',
+            // display: 'flex',
+            justifyContent: "center",
+            alignItems: "center",
+            width:'60vw',
+            height: '60vh',
+            scrollSnapAlign: 'start',
+            marginBottom: "50vh"
         },
     }),
 );
@@ -48,14 +57,15 @@ const Feed = () => {
     let toFeed = []
     const shuffledurls = combinedurls.sort(() => 0.5 - Math.random())
     toFeed.push(shuffledurls.slice(0, 10))
+    setTimeout(function() { alert("You have been scrolling for a while. Do you want to take a break?"); }, 900000)
     return (
-        <div>
+        <div className={classes.container}>
             {/* <iframe src="https://clips.twitch.tv/embed?clip=EmpathicArbitraryTomatoChocolateRain-EvNbwcYXU9AWHY7v&parent=localhost" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe> */}
             <Box className={classes.flexbox} sx={{ display: 'flex', flexDirection: 'column' }}>
                 {toFeed[0].map((tomap, i) =>
-                    < div className={classes.clipcard} >
-                        <Clipcard thumburl={tomap.thumbnail_url} title={tomap.title} streamer={tomap.broadcaster_name} view_count={tomap.view_count} embed_url={tomap.embed_url} />
-                    </div>
+                        < div className={classes.clipcard} >
+                            <Clipcard thumburl={tomap.thumbnail_url} title={tomap.title} streamer={tomap.broadcaster_name} view_count={tomap.view_count} embed_url={tomap.embed_url} />
+                        </div>
                 )
                 }
             </Box >

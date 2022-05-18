@@ -74,7 +74,7 @@ const Clipcard = (input) => {
             </Typography>
         </div>)
     return (
-        <Box style={{ marginTop: 50 }}>
+        <Box style={{ marginTop: 95 }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item className={classes.card} xs={3}>
                 </Grid>

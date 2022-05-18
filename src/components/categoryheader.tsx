@@ -22,22 +22,20 @@ const Categoryheader = (input: any) => {
     return (
         <Grid container
             direction="row"
-            alignItems="center"
-            justifyContent="center"
-            sx={{ mt: 3, ml: 21.5 }}>
-            <Grid item xs={1}>
+            alignItems="left"
+            justifyContent="left"
+            sx={{ mt: 8, mb: 5}}>
+            <Grid item xs={1} >
                 <div>
-                    <Avatar sx={{ width: 150, height: 150 }} className={classes.avatar} src={mockData[under][name].img} ></Avatar>
+                    <Avatar sx={{ ml:8, width: 110, height: 110 }} className={classes.avatar} src={mockData[under][name].img} ></Avatar>
                 </div>
             </Grid>
-            <Grid item xs={7} >
+            <Grid item xs={5}>
                 <div className={classes.profilename}>
                     <Typography variant="h4">{mockData[under][name].name}</Typography>
-                    <Typography variant="body2">{mockData[under][name].followers}</Typography>
+                    <Typography variant="body2">{mockData[under][name].followers} Followers</Typography>
+                    <Button sx={{mt:1, backgroundColor: colors.secondary, color: colors.white}}>Follow</Button>
                 </div>
-            </Grid>
-            <Grid item xs={4}>
-                <Button sx={{ ml: 25, backgroundColor: colors.secondary, color: colors.white}}>Follow</Button>
             </Grid>
         </Grid >
     )

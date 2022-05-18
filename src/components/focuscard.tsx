@@ -64,7 +64,7 @@ const Focuscard = (input) => {
                                     {<iframe
                                         title={"Twitch Clips!"}
                                         src={embed_url + '&parent=localhost' + '&parent=twips-4d764.firebaseapp.com'}
-                                        height="1135"
+                                        height="635"
                                         width="3200"
                                         allowFullScreen={true}>
 

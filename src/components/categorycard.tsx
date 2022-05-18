@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme: Theme) =>
         card: {
             margin: 25,
             marginBottom: 25,
-            width: 475, // should not hard code this
-            height: 450, // should not hard code this
+            width: 400, // should not hard code this
+            height: 400, // should not hard code this
         },
         cardAction: {
             display: 'block',

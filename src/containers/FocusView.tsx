@@ -21,15 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         flexbox: {
             width: '100%',
+            height: '100vh',
             alignItems: 'center',
             justifyContent: 'center',
             display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
             flexWrap: 'wrap',
         },
         clipcard: {
-            marginLeft: '40px',
-            marginRight: '40px',
-            minWidth: '25%',
+            minWidth: '25%'
         },
 
     }),
@@ -49,7 +48,7 @@ const FocusView = (props) => {
             <Grid container>
                 <Grid item xs={12}>
                 </Grid>
-                <Grid item xs={12} sx={{ mt: 4 }} >
+                <Grid item xs={12}>
                     <Box className={classes.flexbox}>
                         <div className={classes.clipcard}>
                             <FocusCard  under={under} category={category} streamer={streamer} title={ title} embed_url={embed_url}/>

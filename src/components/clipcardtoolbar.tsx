@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         buttongroup: {
             backgroundColor: colors.lightbackground,
-            marginLeft: '50',
+            marginLeft: '60',
         },
         griditem: {
             backgroundColor: colors.lightbackground,
@@ -71,23 +71,23 @@ const Cliptoolbar = () => {
                     <ThemeProvider theme={theme}></ThemeProvider>
                     <Grid item xs={3}>
                     </Grid>
-                    <Grid item className={classes.griditem} xs={0.33} align="center">
+                    <Grid item className={classes.griditem} xs={0.8} align="center">
                         <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
                     <Grid item
-                        className={classes.griditem} xs={0.33} align="center">
+                        className={classes.griditem} xs={0.8} align="center">
                         <Typography color='white'>
                             50
                         </Typography>
                     </Grid>
-                    <Grid item className={classes.griditem} xs={0.33} align="center">
+                    <Grid item className={classes.griditem} xs={0.8} align="center">
                         <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
-                    <Grid item xs={0.33} align="center">
+                    <Grid item xs={0.8} align="center">
                         <Button
                             variant='outlined'
                             style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
@@ -95,7 +95,7 @@ const Cliptoolbar = () => {
                             <BookmarkIcon fontSize="small" />
                         </Button>
                     </Grid>
-                    <Grid item xs={0.33}>
+                    <Grid item xs={0.8}>
                         <Button
                             variant='outlined'
                             style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
