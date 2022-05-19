@@ -6,7 +6,7 @@ import Header from "./components/header.tsx";
 import Page1 from "./containers/page1.tsx";
 import Test from "./containers/test.tsx";
 import CategoryPage from "./containers/CategoryPage.tsx";
-import Login from "./containers/Login.tsx";
+import Login from "./containers/login.tsx";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "./style/colors.tsx"
