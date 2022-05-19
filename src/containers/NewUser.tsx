@@ -24,14 +24,7 @@ export default function NewUser() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-            passwordconf: data.get('passwordconf'),
-            firstname : data.get('firstname'),
-            lastname : data.get('lastname'),
-        });
-        NewUserHandler(data.get('email'), data.get('password'), data.get('passwordconf'), data.get('firstname'), data.get('lastname'))
+        NewUserHandler(data.get('email'), data.get('password'), data.get('passwordconf'), data.get('username'))
     };
     const base = "https://api.twipsbits.me";
     const user = "/user/";
@@ -91,21 +84,11 @@ export default function NewUser() {
                             margin="normal"
                             required
                             fullWidth
-                            name="firstname"
-                            label="First Name"
-                            type="First Name"
-                            id="First Name"
-                            autoComplete="FirstName"
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="lastname"
-                            label="Last Name"
-                            type="Last Name"
-                            id="Last Name"
-                            autoComplete="LastName"
+                            name="username"
+                            label="Username"
+                            type="Username"
+                            id="Username"
+                            autoComplete="Username"
                         />
                         <Button
                             type="submit"

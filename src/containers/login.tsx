@@ -15,9 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import NewUser from "./NewUser.tsx";
 import { useNavigate } from 'react-router-dom';
 import { Navigation } from '@mui/icons-material';
-import { LoginHandler } from "../handlers/userHandlers.tsx"
+import { LoginHandler, GetUserHandler } from "../handlers/userHandlers.tsx"
 const theme = createTheme();
 export default function Login({ setToken }) {
+
   const navigate = useNavigate();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,6 +28,7 @@ export default function Login({ setToken }) {
       password: data.get('password'),
     });
     await LoginHandler(data.get('email'), data.get('password'), setToken)
+    await GetUserHandler();
   };
 
   return (

@@ -4,13 +4,12 @@ const user = "/user/";
 const myuser = "/user/id";
 const sessions = "/sessions";
 const mySession = "/sessions/mine";
-export function NewUserHandler(email, password, passwordconf, firstname, lastname) {
+export function NewUserHandler(email, password, passwordconf, username) {
     const newUser = {
         "Email": email,
         "Password": password,
         "PasswordConf": passwordconf,
-        "FirstName": firstname,
-        "LastName": lastname
+        "Username": username,
     };
     fetch(base + "/users",
         {
@@ -62,3 +61,17 @@ export function LoginHandler(email, password, setToken) {
     }
     );
 }
+
+export async function GetUserHandler(setUser){
+      await fetch(base + "/thisuser/me",
+        {
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": sessionStorage.getItem("token"),
+            })
+        }
+      ).then(response => response.text()).then(data=>{
+        sessionStorage.setItem('User', data)
+        return data})
+  };

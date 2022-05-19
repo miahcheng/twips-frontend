@@ -1,9 +1,10 @@
 import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
-import React from "react";
+import React, { useEffect, useState } from "react";
 import mockData from "../mockData/MockData.tsx";
 import colors from "../style/colors.tsx"
+import { GetUserHandler } from "../handlers/userHandlers.tsx";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -38,6 +39,15 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 const Page1 = () => {
+    const [user, setUser] = useState();
+    useEffect(() => {
+        async function fetchMyAPI() {
+            const response = await GetUserHandler();
+            console.log(response)
+            setUser(response)
+        }
+        fetchMyAPI()
+    }, []);
     const classes = useStyles();
     return (
         <Container
