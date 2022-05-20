@@ -52,6 +52,9 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         streamerCardsPage: {
             marginTop: "50px;"
+        },
+        input: {
+            color: "white"
         }
     })
 );
@@ -67,10 +70,17 @@ const Test = () => {
         }
         fetchMyAPI()
     }, []);
-    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-       await ChangeUserInfoHandler(event.target.value, user?.username)
-       setprofiledesc(event.target.value)
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        console.log(user?.username)
+        console.log(data.get('descrip'))
+        await ChangeUserInfoHandler(data.get('descrip'), user?.username)
     };
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setprofiledesc(event.target.value);
+    };
+    
     return (
 
         <Container
@@ -95,12 +105,27 @@ const Test = () => {
                     </Typography>
                     <Box sx={{ p: 1 }}></Box>
                     <Typography variant="body1" style={{ color: 'white' }}>
-                        <TextField
-                            id="outlined-name"
-                            label="Name"
-                            value={profiledesc}
-                            onChange={handleChange}
-                        />
+                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                            <TextField
+                                id="outlined-required"
+                                name="descrip"
+                                label="Profile Description"
+                                value={profiledesc}
+                                InputProps={{
+                                    className: classes.input
+                                }}
+                                style={{ backgroundColor: 'white' }}
+                                onChange={handleChange}
+                            />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                            Change User Description
+                            </Button>
+                        </Box>
                     </Typography>
                 </CardContent>
             </Card>

@@ -101,7 +101,7 @@ export async function GetUserInfoHandler(setUser, username) {
         }
     ).then(response => response.text()).then(data => {
         console.log(data)
-        setUser(JSON.parse(data))
+        setUser(JSON.parse(data).descrip)
         return data
     })
 };
