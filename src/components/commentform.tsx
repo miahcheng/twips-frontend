@@ -6,13 +6,26 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         commentFormTextArea: {
-
+            width: '100%',
+            height: '80px',
+            marginBottom: '8px',
+            marginTop: '8px',
+            border: '1px solid rgb(107, 114, 12)'
         },
         commentFormButton: {
-
+            fontSize: '16px',
+            padding: '8px 16px',
+            background: 'rgb(59, 130, 246)',
+            borderRadius: '8px',
+            color: 'white'
         },
         commentFormCancelButton: {
-
+            fontSize: '16px',
+            padding: '8px 16px',
+            background: 'rgb(59, 130, 246)',
+            borderRadius: '8px',
+            color: 'white',
+            marginLeft: '10px'
         }
     })
 );

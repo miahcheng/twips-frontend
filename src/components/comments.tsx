@@ -15,16 +15,19 @@ import { type } from '@testing-library/user-event/dist/type';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         comments: {
-
+            color: 'white',
+            marginTop: '20px'
         },
         commentsTitle: {
-
+            fontSize: '30px',
+            marginBottom: '20px'
         },
         commentsContainer: {
-
+            marginTop: '40px',
+            color: 'white'
         },
         commentFormTitle: {
-
+            fontSize: '22px'
         }
     })
 );
@@ -69,8 +72,6 @@ const Comments = (currentUserId) => {
             setActiveComment(null);
         });
     };
-
-
 
     console.log('backendComments', backendComments);
 

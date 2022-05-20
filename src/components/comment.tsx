@@ -7,31 +7,42 @@ import Commentform from './commentform.tsx';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         comment: {
-
+            display: 'flex',
         },
         commentImageContainer: {
-
+            marginRight: '12px'
         },
         commentRightPart: {
-
+            width: '100%'
         },
         commentContent: {
-
+            display: 'flex'
         },
         commentAuthor: {
-
+            marginRight: '8px',
+            fontSize: '20px',
+            color: 'rgb(59, 130, 246)'
         },
         commentText: {
-
+            fontSize: '18px'
         },
         replies: {
-
+            marginTop: '20px'
         },
         commentActions: {
-
+            display: 'flex',
+            fontSize: '12px',
+            color: 'rgb(51, 51, 51)',
+            cursor: 'pointer',
+            marginTop: '8px'
         },
         commentAction: {
-
+            marginRight: '8px'
+        },
+        avatar: {
+            width: '75px',
+            height: '75px',
+            borderRadius: '40px'
         }
     })
 );
@@ -61,7 +72,7 @@ const Comment = (input) => {
     return (
         <div className={classes.comment}>
             <div className={classes.commentImageContainer}>
-                <img src="/farfa.jpeg" />
+                <img className={classes.avatar} src="/farfa.jpeg" />
             </div>
             <div className={classes.commentRightPart}>
                 <div className={classes.commentContent}>

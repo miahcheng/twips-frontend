@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme: Theme) =>
         icon: {
             height: 75,
             width: 75
+        },
+        commentBox: {
+            color: 'white'
         }
     })
 );
@@ -54,9 +57,10 @@ const Chatbox = (input) => {
     const { thumburl, title, under, category, streamer, view_count, embed_url } = input;
     const classes = useStyles();
     return (
-        <Box>
+        <Box className={classes.commentBox}>
            {/* <img width={350} height={765} src={'/chat.png'} alt="comments" /> */}
-           <Comments currentUserId="1" />
+           {/* pass in user id V down below */}
+           <Comments currentUserId="1" /> 
         </Box>
     )
 };
