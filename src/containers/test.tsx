@@ -52,9 +52,12 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         streamerCardsPage: {
             marginTop: "50px;"
+<<<<<<< HEAD
         },
         input: {
             color: '#7E52A0'
+=======
+>>>>>>> origin/morestyle
         }
     })
 );
@@ -123,6 +126,7 @@ const Test = () => {
 
     const [showFollowing, setFollowing] = React.useState(false);
 
+    
     return (
 
         <Container
@@ -151,23 +155,21 @@ const Test = () => {
                             <TextField
                                 id="outlined-multiline"
                                 name="descrip"
+                                placeholder="Bio"
+                                variant="filled"
+                                size="small"
                                 value={profiledesc}
-                                multiline
-                                InputProps={{
-                                    className: classes.input
-                                }}
-                                style={{
-                                    color: 'white'
-                                }}
+                                inputProps={{ style: { color: "white" }} }
+                                style={{ backgroundColor: 'black' }}
                                 onChange={handleChange}
                             />
+                            <Box sx={{ p: 0.1 }}></Box>
                             <Button
                                 type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                variant="text"
+                                sx={{ mt: 2, mb: 1 }}
                             >
-                                Change User Description
+                                Edit Bio
                             </Button>
                         </Box>
                     </Typography>

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center',
-            width:'100vw',
+            width:'90vw',
             height: '100vh'
             
         },
