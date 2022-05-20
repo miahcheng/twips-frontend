@@ -24,17 +24,12 @@ export function NewUserHandler(email, password, passwordconf, username) {
         }
     ).then(response => {
         if (response.status >= 400) {
-            console.log("error creating new user account");
-            console.log(response);
-            console.log(response.text())
             if (response.status === 400) {
                 window.alert("Error creating new user");
             }
+        }else{
+            window.alert("User signed up! Please log in");
         }
-        console.log(response);
-        window.alert("User signed up! Please log in");
-        console.log(response.status)
-        console.log(response.text)
         return response
     }).then(response => {
         status = response.status
@@ -48,7 +43,6 @@ export function NewUserHandler(email, password, passwordconf, username) {
 }
 
 export function LoginHandler(email, password, setToken) {
-    console.log(base + sessions);
     fetch(base + sessions,
         {
             method: "POST",
@@ -62,8 +56,6 @@ export function LoginHandler(email, password, setToken) {
         }
     ).then((response) => {
         if (response.status >= 400) {
-            console.log("error logging in user");
-            console.log(response);
             window.alert("Incorrect email or password");
             return;
         } else {
@@ -161,10 +153,6 @@ export function SearchCategories(toSearch) {
 }
 
 export async function GetClips(game_id, setData) {
-    const params = {
-        'game_id': game_id,
-        'first': 21,
-    }
     await fetch('https://api.twitch.tv/helix/clips?game_id=' + game_id + '&first=20',
         {
             method: "GET",

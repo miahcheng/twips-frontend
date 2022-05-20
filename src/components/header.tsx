@@ -164,7 +164,7 @@ const Header = () => {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search Categories"
+                            placeholder="Search"
                             inputProps={{ 'aria-label': 'search' }}
                             onKeyDown={keyPress} 
                         />

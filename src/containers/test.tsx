@@ -110,17 +110,17 @@ const Test = () => {
         await ChangeUserInfoHandler(data.get('descrip'), user?.username)
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if(event.target.value == " ") {
+        if (event.target.value == " ") {
             setprofiledesc("Create your first profile description")
         }
-        else{
+        else {
             setprofiledesc(event.target.value);
         }
     };
 
-    const [showFollowing, setFollowing] = React.useState(false);
+    const [showFollowing, setFollowing] = React.useState(true);
 
-    
+
     return (
 
         <Container
@@ -140,12 +140,12 @@ const Test = () => {
                     </ThemeProvider> */}
                 {/* </CardContent> */}
                 <CardContent style={{ backgroundColor: "black" }}>
-                    <Typography className={classes.user} variant="h5" style={{ color: '#7E52A0' }}>  {user?.username}</Typography>
                     <Typography className={classes.follower} variant="body1" style={{ color: 'white' }}>
                     </Typography>
                     <Box sx={{ p: 1 }}></Box>
                     <Typography variant="body1" style={{ color: 'white' }}>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                            <Typography className={classes.user} variant="h5" style={{ color: '#7E52A0' }}>  {user?.username}</Typography>
                             <TextField
                                 id="outlined-multiline"
                                 name="descrip"
@@ -154,12 +154,13 @@ const Test = () => {
                                 size="small"
                                 multiline
                                 value={profiledesc}
-                                inputProps={{ style: { color: "white" }} }
+                                inputProps={{ style: { color: "white" } }}
                                 style={{ backgroundColor: 'black' }}
                                 onChange={handleChange}
                             />
                             <Box sx={{ p: 0.1 }}></Box>
                             <Button
+                                id="outlined"
                                 type="submit"
                                 variant="text"
                                 sx={{ mt: 2, mb: 1 }}

@@ -94,8 +94,10 @@ const SearchPage = (props) => {
             }}
         >
             <Grid className={classes.grid} container>
-                <Grid item xs={12} container direction="row">
-                    <Box className={classes.flexbox}>
+                <Grid item xs={12} container direction="column">
+                    <Box style={{
+                        marginLeft: "7%",
+                    }}>
                         {searched && searched?.slice(0, catlength).map((element, i) =>
                             <MenuList>
                                 <NavLink
@@ -119,6 +121,8 @@ const SearchPage = (props) => {
                                 </NavLink>
                             </MenuList>
                         )}
+                    </Box>
+                    <Box className={classes.flexbox}>
                         {searched ? data?.data.map((element, i) =>
                             <div className={classes.clipcard}>
                                 <Categorycard thumburl={element.thumbnail_url} title={element.title} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url} />
