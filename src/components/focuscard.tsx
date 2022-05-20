@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme: Theme) =>
         bar: {
             marginTop: '20px'
         },
+        card: {
+            
+        }
     })
 );
 const theme = createTheme({

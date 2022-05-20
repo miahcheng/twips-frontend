@@ -11,6 +11,7 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import Comment from './comment.tsx';
 import Commentform from './commentform.tsx';
 import { type } from '@testing-library/user-event/dist/type';
+import { Hidden } from '@mui/material';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -24,7 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         commentsContainer: {
             marginTop: '40px',
-            color: 'white'
+            color: 'white',
+            overflow: 'scroll',
+            overflowX: 'hidden',
+            height: '475px'
         },
         commentFormTitle: {
             fontSize: '22px'
