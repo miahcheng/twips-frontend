@@ -77,8 +77,6 @@ const Comments = (currentUserId) => {
         });
     };
 
-    console.log('backendComments', backendComments);
-
     React.useEffect(() => {
         getCommentsApi().then(data => {
             setBackendComments(data);
