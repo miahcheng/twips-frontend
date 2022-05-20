@@ -20,6 +20,7 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import ButtonGroup from '@mui/material/ButtonGroup';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import ShareIcon from '@mui/icons-material/Share';
+import Sharebuttonbar from "./sharebuttonbar.tsx";
 
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
@@ -62,7 +63,8 @@ const theme = createTheme({
         },
     },
 });
-const Cliptoolbar = () => {
+const Cliptoolbar = (input) => {
+    const { embed_url } = input;
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
@@ -95,13 +97,14 @@ const Cliptoolbar = () => {
                             <BookmarkIcon fontSize="small" />
                         </Button>
                     </Grid>
-                    <Grid item xs={0.8}>
-                        <Button
+                    <Grid item xs={2}>
+                        {/* <Button // this is where the share button should be - make a share button bar?
                             variant='outlined'
                             style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
                         >
                             <ShareIcon fontSize="small" />
-                        </Button>
+                        </Button> */}
+                        <Sharebuttonbar embed_url={embed_url}/>
                     </Grid>
                 </Grid>
             </Box>

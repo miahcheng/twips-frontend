@@ -105,7 +105,7 @@ const Clipcard = (input) => {
                 <Grid item className={classes.card} xs={0.75}>
                 </Grid>
                 <Grid item className={classes.card} xs={9}>
-                    <Cliptoolbar />
+                    <Cliptoolbar embed_url={embed_url}/>
                 </Grid>
             </Grid>
         </Box>
