@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: "50px;"
         },
         input: {
-            color: "white"
+            color: '#7E52A0'
         }
     })
 );
@@ -113,7 +113,12 @@ const Test = () => {
         await ChangeUserInfoHandler(data.get('descrip'), user?.username)
     };
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setprofiledesc(event.target.value);
+        if(event.target.value == " ") {
+            setprofiledesc("Create your first profile description")
+        }
+        else{
+            setprofiledesc(event.target.value);
+        }
     };
 
     const [showFollowing, setFollowing] = React.useState(false);
@@ -144,14 +149,16 @@ const Test = () => {
                     <Typography variant="body1" style={{ color: 'white' }}>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
-                                id="outlined-required"
+                                id="outlined-multiline"
                                 name="descrip"
-                                label="Profile Description"
                                 value={profiledesc}
+                                multiline
                                 InputProps={{
                                     className: classes.input
                                 }}
-                                style={{ backgroundColor: 'white' }}
+                                style={{
+                                    color: 'white'
+                                }}
                                 onChange={handleChange}
                             />
                             <Button

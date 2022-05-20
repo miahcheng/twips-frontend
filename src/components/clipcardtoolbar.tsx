@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -64,8 +64,30 @@ const theme = createTheme({
 });
 const Cliptoolbar = (input) => {
     const { embed_url } = input;
+    const [counter, setCounter] = useState(Math.round(Math.random()*100))
+    const [updisabled, setupdisabled] = useState(false)
+    const [downdisabled, setdowndisabled] = useState(false)
     const classes = useStyles();
-
+    const handleDown = async (event) => {
+        if(updisabled){
+            setCounter(counter + 1)
+            setupdisabled(false)
+        }
+        else{
+            setCounter(counter - 1)
+            setupdisabled(true)
+        }
+    }
+    const handleUp = async (event) => {
+        if(downdisabled){
+            setCounter(counter - 1)
+            setdowndisabled(false)
+        }
+        else{
+            setCounter(counter + 1)
+            setdowndisabled(true)
+        }
+    }
 
     return (
 
@@ -76,18 +98,18 @@ const Cliptoolbar = (input) => {
                     <Grid item xs={3}>
                     </Grid>
                     <Grid item className={classes.griditem} xs={0.8} align="center">
-                        <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
+                        <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }} onClick={handleUp} disabled={updisabled}>
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
                     <Grid item
                         className={classes.griditem} xs={0.8} align="center">
                         <Typography color='white'>
-                            50
+                            {counter}
                         </Typography>
                     </Grid>
                     <Grid item className={classes.griditem} xs={0.8} align="center">
-                        <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
+                        <Button style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}  onClick={handleDown} disabled={downdisabled}>
                             <KeyboardArrowDownOutlinedIcon fontSize="small" />
                         </Button>
                     </Grid>
