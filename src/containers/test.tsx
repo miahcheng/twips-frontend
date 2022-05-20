@@ -54,8 +54,45 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     })
 );
+
+const Following = () => {
+    const classes = useStyles();
+    return (
+        <Grid className={classes.streamerCardsPage}>
+                <Grid container spacing={15} direction="row">
+                    <Grid item xs={4} >
+                        <Streamercard
+                            image="/tyler1.jpeg"
+                            channel="Tyler1"
+                            channelName="Tyler1"
+                            followers="4.8M Followers"
+                        />
+                    </Grid>
+                    <Grid item xs={4} >
+                        <Streamercard
+                            image="/league.jpeg"
+                            channel="League of Legends"
+                            channelName="League of Legends"
+                            followers="33M Followers"
+                        />
+                    </Grid>
+                    <Grid item xs={4} >
+                        <Streamercard
+                            image="/genshin.jpeg"
+                            channel="Genshin Impact"
+                            channelName="Genshin Impact"
+                            followers="3.7M Followers"
+                        />
+                    </Grid>
+                </Grid>
+            </Grid>
+    )
+};
+
 const Test = () => {
     const classes = useStyles();
+    const [showFollowing, setFollowing]= React.useState(false);
+
     return (
         
         <Container
@@ -89,44 +126,12 @@ const Test = () => {
             <Grid className={classes.navigation} style= {{backgroundColor: "black"}}>
                 <Grid item xs={4} container direction="row" spacing={4} sx= {{ml: 0.5}}>
                     <Grid item>
-                        <Button className = {classes.navButton} variant="text">Following</Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className = {classes.navButton} variant="text">Liked</Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className = {classes.navButton} variant="text">Favorites</Button>
+                        <Button className = {classes.navButton} onClick={()=>setFollowing(s=>!s)} variant="text">Following</Button>
+                        {showFollowing && <Following></Following>}
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid className={classes.streamerCardsPage}>
-                <Grid item xs={8} container direction="row">
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/tyler1.jpeg"
-                            channel="Tyler1"
-                            channelName="Tyler1"
-                            followers="4.8M Followers"
-                        />
-                    </Grid>
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/league.jpeg"
-                            channel="League of Legends"
-                            channelName="League of Legends"
-                            followers="33M Followers"
-                        />
-                    </Grid>
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/genshin.jpeg"
-                            channel="Genshin Impact"
-                            channelName="Genshin Impact"
-                            followers="3.7M Followers"
-                        />
-                    </Grid>
-                </Grid>
-            </Grid>
+            
 
         </Container> 
     )
