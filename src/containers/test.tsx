@@ -52,9 +52,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         streamerCardsPage: {
             marginTop: "50px;"
-        },
-        input: {
-            color: "white"
         }
     })
 );
@@ -118,6 +115,7 @@ const Test = () => {
 
     const [showFollowing, setFollowing] = React.useState(false);
 
+    
     return (
 
         <Container
@@ -146,21 +144,21 @@ const Test = () => {
                             <TextField
                                 id="outlined-required"
                                 name="descrip"
-                                label="Profile Description"
+                                placeholder="Bio"
+                                variant="filled"
+                                size="small"
                                 value={profiledesc}
-                                InputProps={{
-                                    className: classes.input
-                                }}
-                                style={{ backgroundColor: 'white' }}
+                                inputProps={{ style: { color: "white" }} }
+                                style={{ backgroundColor: 'black' }}
                                 onChange={handleChange}
                             />
+                            <Box sx={{ p: 0.1 }}></Box>
                             <Button
                                 type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                variant="text"
+                                sx={{ mt: 2, mb: 1 }}
                             >
-                                Change User Description
+                                Edit Bio
                             </Button>
                         </Box>
                     </Typography>

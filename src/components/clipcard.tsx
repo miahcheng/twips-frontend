@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
         cardAction: {
             display: 'block',
             textAlign: 'initial'
-        },
+        }
     })
 );
 const theme = createTheme({
@@ -74,8 +74,8 @@ const Clipcard = (input) => {
             </Typography>
         </div>)
     return (
-        <Box style={{ marginTop: 95 }}>
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Box style={{ marginTop: 85 }}>
+            <Grid container rowSpacing={1} >
                 <Grid item className={classes.card} xs={3}>
                 </Grid>
                 <Grid item className={classes.card} xs={6}>
@@ -84,7 +84,7 @@ const Clipcard = (input) => {
                             onClick={
                                 () => navigate('/FocusView', { state: { under: under, category: category, streamer: streamer, title: title, embed_url: embed_url } })
                             }>
-                            <Card>
+                            <Card >
                                 <CardHeader sx={{ backgroundColor: colors.primary }} title={headerTitle} action={
                                     <ThemeProvider theme={theme}>
                                         <Button>

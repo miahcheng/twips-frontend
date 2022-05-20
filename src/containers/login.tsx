@@ -38,6 +38,7 @@ export default function Login({ setToken }) {
             marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
+            color: 'black',
             alignItems: 'center',
           }}
         >
@@ -72,16 +73,11 @@ export default function Login({ setToken }) {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, color: ""}}
             >
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="#" variant="body2" onClick={() => {
                   console.log("hello");
