@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         commentActions: {
             display: 'flex',
             fontSize: '12px',
-            color: 'rgb(51, 51, 51)',
+            color: 'white',
             cursor: 'pointer',
             marginTop: '8px'
         },

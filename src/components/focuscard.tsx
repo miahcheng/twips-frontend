@@ -25,7 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
         icon: {
             height: 75,
             width: 75
-        }
+        },
+        bar: {
+            marginTop: '20px'
+        },
     })
 );
 const theme = createTheme({
@@ -73,12 +76,12 @@ const Focuscard = (input) => {
                             </CardContent>
                         </Card>
                     </CardActionArea>
+                    <div className={classes.bar}>
+                        <Focustoolbar embed_url={embed_url} />
+                    </div>
                 </Grid>
                 <Grid item className={classes.card} xs={2.5}>
                     <Chatbox />
-                </Grid>
-                <Grid item className={classes.card} xs={12}>
-                    <Focustoolbar embed_url={embed_url}/>
                 </Grid>
             </Grid>
         </Box>

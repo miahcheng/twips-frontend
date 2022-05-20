@@ -6,7 +6,7 @@ import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         commentFormTextArea: {
-            width: '100%',
+            width: '90%',
             height: '80px',
             marginBottom: '8px',
             marginTop: '8px',

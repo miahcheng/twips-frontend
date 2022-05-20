@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: 75
         },
         commentBox: {
-            color: 'white'
+            color: 'black'
         }
     })
 );
