@@ -58,6 +58,41 @@ const useStyles = makeStyles((theme: Theme) =>
         }
     })
 );
+
+const Following = () => {
+    const classes = useStyles();
+    return (
+        <Grid className={classes.streamerCardsPage}>
+            <Grid container spacing={15} direction="row">
+                <Grid item xs={4} >
+                    <Streamercard
+                        image="/tyler1.jpeg"
+                        channel="Tyler1"
+                        channelName="Tyler1"
+                        followers="4.8M Followers"
+                    />
+                </Grid>
+                <Grid item xs={4} >
+                    <Streamercard
+                        image="/league.jpeg"
+                        channel="League of Legends"
+                        channelName="League of Legends"
+                        followers="33M Followers"
+                    />
+                </Grid>
+                <Grid item xs={4} >
+                    <Streamercard
+                        image="/genshin.jpeg"
+                        channel="Genshin Impact"
+                        channelName="Genshin Impact"
+                        followers="3.7M Followers"
+                    />
+                </Grid>
+            </Grid>
+        </Grid>
+    )
+};
+
 const Test = () => {
     const classes = useStyles();
     const [user, setUser] = useState();
@@ -80,7 +115,9 @@ const Test = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setprofiledesc(event.target.value);
     };
-    
+
+    const [showFollowing, setFollowing] = React.useState(false);
+
     return (
 
         <Container
@@ -123,7 +160,7 @@ const Test = () => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                            Change User Description
+                                Change User Description
                             </Button>
                         </Box>
                     </Typography>
@@ -132,100 +169,15 @@ const Test = () => {
             <Grid className={classes.navigation} style={{ backgroundColor: "black" }}>
                 <Grid item xs={4} container direction="row" spacing={4} sx={{ ml: 0.5 }}>
                     <Grid item>
-                        <Button className={classes.navButton} variant="text">Following</Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className={classes.navButton} variant="text">Liked</Button>
-                    </Grid>
-                    <Grid item>
-                        <Button className={classes.navButton} variant="text">Favorites</Button>
+                        <Button className={classes.navButton} onClick={() => setFollowing(s => !s)} variant="text">Following</Button>
+                        {showFollowing && <Following></Following>}
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid className={classes.streamerCardsPage}>
-                <Grid item xs={8} container direction="row">
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/tyler1.jpeg"
-                            channel="Tyler1"
-                            channelName="Tyler1"
-                            followers="4.8M Followers"
-                        />
-                    </Grid>
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/league.jpeg"
-                            channel="League of Legends"
-                            channelName="League of Legends"
-                            followers="33M Followers"
-                        />
-                    </Grid>
-                    <Grid item xs={3} >
-                        <Streamercard
-                            image="/genshin.jpeg"
-                            channel="Genshin Impact"
-                            channelName="Genshin Impact"
-                            followers="3.7M Followers"
-                        />
-                    </Grid>
-                </Grid>
-            </Grid>
+
 
         </Container>
     )
 };
 
 export default Test;
-
-{/* <Card className={classes.card} variant='outlined'>
-                <Box sx={{ position: 'relative' }}>
-                    <CardMedia
-                        component="img"
-                        height="100"
-                        image='/background.jpeg'
-                        alt="Background"
-                    />
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '100%',
-                            bgcolor: 'rgba(0, 0, 0, 0.54)',
-                            color: 'white',
-                            padding: '10px',
-                        }}
-                    >
-                        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                            <Grid item xs={6}>
-                                <Typography variant="h5">{mockData.user.TwitchName}</Typography>
-                                <Typography variant="body2">{mockData.user.FirstName + mockData.user.LastName}</Typography>
-                            </Grid>
-                            <Grid item xs={6}>
-                                <Avatar sx={{ width: 100, height: 100 }} className={classes.avatar} src="/profile.jpeg" ></Avatar>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Box>
-                <CardContent >
-                    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={16} sx={{ backgroundColor: colors.secondary }}>
-                            <Typography variant="h3"> About you</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography> First Name:</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography> {mockData.user.FirstName} </Typography>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <Typography> Last Name:</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography> {mockData.user.LastName} </Typography>
-                        </Grid>
-                    </Grid>
-                </CardContent>
-                </Card > */}

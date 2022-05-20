@@ -220,6 +220,11 @@ const Header = () => {
                                     CategoryLink(ogname, 'creators')
                                 )
                             )}
+                            <NavLink to={'/Searchpage'} style={{ textDecoration: 'none' }}>
+                                <MenuItem style={{ color: colors.primary }}>
+                                        <ListItemText primaryTypographyProps={{ style: text }} primary={'Test'} />
+                                </MenuItem>
+                            </NavLink>
                         </MenuList>
                     </ThemeProvider>
                 </div>
