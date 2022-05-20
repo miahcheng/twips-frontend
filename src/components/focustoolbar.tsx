@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import Sharebuttonbar from "./sharebuttonbar.tsx";
 import { CardHeader, Box, createMuiTheme } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
@@ -62,17 +63,18 @@ const theme = createTheme({
         },
     },
 });
-const Focustoolbar = () => {
+const Focustoolbar = (input) => {
+    const { embed_url } = input;
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
             <Box>
                 <Grid container>
-                    <ThemeProvider theme={theme}></ThemeProvider> 
+                    <ThemeProvider theme={theme}></ThemeProvider>
                     <Grid item className={classes.griditem} xs={0.33} align="center">
                         <Button className={classes.buttongroup} style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}>
                             <KeyboardArrowUpOutlinedIcon fontSize="small" />
-                        </Button> 
+                        </Button>
                     </Grid>
                     <Grid item
                         className={classes.griditem} xs={0.33} align="center">
@@ -94,12 +96,7 @@ const Focustoolbar = () => {
                         </Button>
                     </Grid>
                     <Grid item xs={0.33}>
-                        <Button
-                            variant='outlined'
-                            style={{ maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px' }}
-                        >
-                            <ShareIcon fontSize="small" />
-                        </Button>
+                        <Sharebuttonbar embed_url={embed_url} />
                     </Grid>
                 </Grid>
             </Box>

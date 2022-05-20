@@ -19,6 +19,8 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import Cliptoolbar from "./clipcardtoolbar.tsx";
 import { CardActionArea } from '@mui/material';
 import Updownbuttons from "./updownbuttons.tsx";
+import Comments from './comments.tsx';
+
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -53,7 +55,8 @@ const Chatbox = (input) => {
     const classes = useStyles();
     return (
         <Box>
-           <img width={350} height={765} src={'/chat.png'} alt="comments" />
+           {/* <img width={350} height={765} src={'/chat.png'} alt="comments" /> */}
+           <Comments currentUserId="1" />
         </Box>
     )
 };

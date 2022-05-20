@@ -78,7 +78,7 @@ const Focuscard = (input) => {
                     <Chatbox />
                 </Grid>
                 <Grid item className={classes.card} xs={12}>
-                    <Focustoolbar />
+                    <Focustoolbar embed_url={embed_url}/>
                 </Grid>
             </Grid>
         </Box>
