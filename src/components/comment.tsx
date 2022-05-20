@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: '8px'
         },
         avatar: {
-            width: '75px',
-            height: '75px',
+            width: '60px',
+            height: '60px',
             borderRadius: '40px'
         }
     })
