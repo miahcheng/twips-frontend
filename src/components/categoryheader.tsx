@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 const Categoryheader = (input: any) => {
     const classes = useStyles();
-    const { name, under } = input;
+    const { gamename, src } = input;
     return (
         <Grid container
             direction="row"
@@ -27,13 +27,12 @@ const Categoryheader = (input: any) => {
             sx={{ mt: 8, mb: 5}}>
             <Grid item xs={1} >
                 <div>
-                    <Avatar sx={{ ml:8, width: 110, height: 110 }} className={classes.avatar} src={mockData[under][name].img} ></Avatar>
+                    <Avatar sx={{ ml:8, width: 110, height: 110 }} className={classes.avatar} src={src} ></Avatar>
                 </div>
             </Grid>
             <Grid item xs={5}>
                 <div className={classes.profilename}>
-                    <Typography variant="h4">{mockData[under][name].name}</Typography>
-                    <Typography variant="body2">{mockData[under][name].followers} Followers</Typography>
+                    <Typography variant="h4">{gamename}</Typography>
                     <Button sx={{mt:1, backgroundColor: colors.secondary, color: colors.white}}>Follow</Button>
                 </div>
             </Grid>

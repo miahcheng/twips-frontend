@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const FocusView = (props) => {
     const classes = useStyles();
     const location = useLocation()
-    const { under, category, streamer, title, embed_url } = location.state
+    const { category, streamer, title, embed_url } = location.state
     return (
         <Container
             style={{
@@ -51,7 +51,7 @@ const FocusView = (props) => {
                 <Grid item xs={12}>
                     <Box className={classes.flexbox}>
                         <div className={classes.clipcard}>
-                            <FocusCard  under={under} category={category} streamer={streamer} title={ title} embed_url={embed_url}/>
+                            <FocusCard category={category} streamer={streamer} title={ title} embed_url={embed_url}/>
                         </div>
                     </Box>
                 </Grid>

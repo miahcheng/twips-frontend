@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
@@ -7,6 +7,8 @@ import Categorycard from "../components/categorycard.tsx";
 import Categoryheader from "../components/categoryheader.tsx";
 import mockData from "../mockData/MockData.tsx";
 import { useLocation } from "react-router-dom"
+import { GetClips } from "../handlers/userHandlers.tsx";
+import { useState } from "react";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             flexGrow: 1,
-            
+
         },
         drawer: {
             width: 300,
@@ -26,9 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center',
-            width:'75vw',
+            width: '75vw',
             height: '75vh'
-            
+
         },
         grid: {
             marginTop: "55px"
@@ -39,13 +41,13 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
             display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
             flexWrap: 'wrap',
-            
+
         },
         clipcard: {
             marginLeft: '40px',
             marginRight: '40px',
             minWidth: '25%',
-            
+
         },
         root: {
             flexGrow: 1,
@@ -55,7 +57,14 @@ const useStyles = makeStyles((theme: Theme) =>
 const CategoryPage = (props) => {
     const classes = useStyles();
     const location = useLocation()
-    const { name, under } = location.state
+    const { id, gamename, src } = location.state
+    const [data, setData] = useState()
+    useEffect(() => {
+        async function fetchMyAPI() {
+                await GetClips(id, setData)
+        }
+        fetchMyAPI()
+    }, []);
     return (
         <Container className={classes.container}
             style={{
@@ -66,15 +75,15 @@ const CategoryPage = (props) => {
         >
             <Grid className={classes.grid} container>
                 <Grid item xs={12}>
-                    <Categoryheader name={name} under={under}></Categoryheader>
+                    <Categoryheader gamename={gamename} src={src}></Categoryheader>
                 </Grid>
                 <Grid item xs={12} container direction="row">
                     <Box className={classes.flexbox}>
-                        {mockData[under][name].clips.data.map((element, i) =>
+                        {data?.data.map((element, i) =>
                             <div className={classes.clipcard}>
-                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={under} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url}/>
+                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={'category'} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url} />
                             </div>
-                        )} 
+                        )}
                     </Box>
                 </Grid>
             </Grid>

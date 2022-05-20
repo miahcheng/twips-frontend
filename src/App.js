@@ -14,6 +14,7 @@ import FocusView from "./containers/FocusView.tsx";
 import NewUser from "./containers/NewUser.tsx";
 import { Container } from "@mui/material";
 import useToken from './handlers/useToken.tsx';
+import SearchPage from "./containers/SearchPage.tsx";
 const useStyles = makeStyles((theme) =>
   createStyles({
     body: {
@@ -62,6 +63,7 @@ export default function App() {
             <Route exact path="/CategoryPage" element={<CategoryPage />} />
             <Route exact path="/FocusView" element={<FocusView />} />
             <Route exact path="/test" element={<Test />} />
+            <Route exact path="/SearchPage" element={<SearchPage />} />
           </Routes>
         </BrowserRouter>
       </div>

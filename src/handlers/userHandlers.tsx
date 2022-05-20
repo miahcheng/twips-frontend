@@ -1,4 +1,6 @@
 import React from "react";
+import top1000games from "../mockData/top1000games.json"
+import jsonata from "jsonata";
 const base = "https://api.twipsbits.me";
 const user = "/user/";
 const myuser = "/user/id";
@@ -144,3 +146,31 @@ export async function ChangeUserInfoHandler(descrip, username) {
         return response.status
     })
 };
+
+export function SearchCategories(toSearch) {
+    const data = top1000games
+    const expression = jsonata("data[$contains($lowercase(name), $lowercase('" + toSearch + "'))]")
+    const result = expression.evaluate(data);
+    return result
+}
+
+export async function GetClips(game_id, setData) {
+    const params = {
+        'game_id': game_id,
+        'first': 21,
+    }
+    await fetch('https://api.twitch.tv/helix/clips?game_id=' + game_id + '&first=20',
+        {
+            method: "GET",
+            headers: new Headers({
+                'Authorization': 'Bearer hx9mqz29siythdylwnsx0sa16pcvq2',
+                'Client-Id': 'v3otx989wtltdv9141d0jwx6r0271y',
+            })
+        }
+    ).then(response =>
+      response.json()).then(data => {
+        console.log(data)
+        setData(data)
+        return data
+    })
+}

@@ -24,7 +24,8 @@ import { Icon } from '@iconify/react';
 import TagIcon from '@mui/icons-material/Tag';
 import { Avatar } from '@mui/material';
 import mockData from '../mockData/MockData.tsx';
-
+import { SearchCategories } from '../handlers/userHandlers'
+import { useNavigate } from "react-router-dom";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -65,8 +66,6 @@ const drawerFont = createTheme({
 const text = {
     fontSize: "1vw"
 };
-
-
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -126,6 +125,7 @@ const CategoryLink = (catname, undername) => {
 }
 
 const Header = () => {
+    const navigate = useNavigate();
     const classes = useStyles();
     const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = (open: boolean) => (
@@ -141,6 +141,14 @@ const Header = () => {
 
         setIsOpen(open);
     };
+     const keyPress = (e) =>{
+         console.log('ok')
+        if(e.keyCode == 13){
+           navigate("/SearchPage", {state:{
+            tosearch: e.target.value
+        }});
+        }
+     }
     return (
         <div>
             <AppBar color='primary' position="fixed">
@@ -156,8 +164,9 @@ const Header = () => {
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="Search Categories"
                             inputProps={{ 'aria-label': 'search' }}
+                            onKeyDown={keyPress} 
                         />
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />

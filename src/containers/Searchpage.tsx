@@ -1,5 +1,5 @@
-import React from "react";
-import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar, Button, MenuItem, ListItemText, ListItemIcon, MenuList } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import colors from "../style/colors.tsx";
@@ -7,6 +7,8 @@ import Categorycard from "../components/categorycard.tsx";
 import Categoryheader from "../components/categoryheader.tsx";
 import mockData from "../mockData/MockData.tsx";
 import { useLocation } from "react-router-dom"
+import { SearchCategories, GetClips } from "../handlers/userHandlers.tsx"
+import { NavLink } from 'react-router-dom';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {
@@ -14,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             flexGrow: 1,
-            
+
         },
         drawer: {
             width: 300,
@@ -26,9 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center',
-            width:'75vw',
+            width: '75vw',
             height: '75vh'
-            
+
         },
         grid: {
             marginTop: "55px"
@@ -39,23 +41,50 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
             display: 'flex', // display flex and flexwrap so it changes the number of boxes with resolution
             flexWrap: 'wrap',
-            
+
         },
         clipcard: {
             marginLeft: '40px',
             marginRight: '40px',
             minWidth: '25%',
-            
+
         },
         root: {
             flexGrow: 1,
-        }
+        },
+        avatar: {
+            marginLeft: '80px' // should not hard code
+        },
+        profilename: {
+            marginLeft: 50,
+            color: colors.white,
+        },
     }),
 );
 const SearchPage = (props) => {
     const classes = useStyles();
     const location = useLocation()
-    const { name, under } = location.state
+    const { tosearch } = location.state
+    const searched = SearchCategories(tosearch)
+    let catlength
+    const [data, setData] = useState()
+    if (searched) {
+        if (searched.length > 5) {
+            catlength = 5
+        }
+        else {
+            catlength = searched.length
+        }
+    }
+    useEffect(() => {
+        async function fetchMyAPI() {
+            if (searched) {
+                await GetClips(searched[0].id, setData)
+            }
+        }
+
+        fetchMyAPI()
+    }, [tosearch]);
     return (
         <Container className={classes.container}
             style={{
@@ -67,15 +96,38 @@ const SearchPage = (props) => {
             <Grid className={classes.grid} container>
                 <Grid item xs={12} container direction="row">
                     <Box className={classes.flexbox}>
-                        {mockData[under][name].clips.data.map((element, i) =>
+                        {searched && searched?.slice(0, catlength).map((element, i) =>
+                            <MenuList>
+                                <NavLink
+                                    to={'/CategoryPage'}
+                                    state={{
+                                        id: element.id, 
+                                        src: element.box_art_url,
+                                        gamename: element.name
+
+                                    }}
+                                    style={{ textDecoration: 'none' }}>
+                                    <MenuItem style={{ color: colors.white }}>
+                                        <ListItemIcon>
+                                            <Avatar sx={{ ml: 8, width: 110, height: 110 }} className={classes.avatar} src={element.box_art_url} ></Avatar>
+                                        </ListItemIcon>
+                                        <ListItemText className={classes.profilename}>
+                                            <Typography variant="h4">{element.name}</Typography>
+                                            <Button sx={{ mt: 1, backgroundColor: colors.secondary, color: colors.white }}>Follow</Button>
+                                        </ListItemText>
+                                    </MenuItem>
+                                </NavLink>
+                            </MenuList>
+                        )}
+                        {searched ? data?.data.map((element, i) =>
                             <div className={classes.clipcard}>
-                                <Categorycard thumburl={element.thumbnail_url} title={element.title} under={under} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url}/>
+                                <Categorycard thumburl={element.thumbnail_url} title={element.title} category={element.game_id} streamer={element.broadcaster_name} view_count={element.view_count} embed_url={element.embed_url} />
                             </div>
-                        )} 
+                        ) : <Typography variant="h4"> No Results try searching again </Typography>}
                     </Box>
                 </Grid>
-            </Grid>
-        </Container>
+            </Grid >
+        </Container >
     );
 };
 

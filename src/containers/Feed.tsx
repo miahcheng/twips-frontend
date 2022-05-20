@@ -9,8 +9,6 @@ import { Category } from "@mui/icons-material";
 import mockData from "../mockData/MockData.tsx";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { GetUserHandler } from "../handlers/userHandlers.tsx";
-
-
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         HomePage: {

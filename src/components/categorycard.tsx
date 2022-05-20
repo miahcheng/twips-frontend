@@ -59,28 +59,21 @@ const handleClick = (under, category, streamer, title, embed_url) => {
 const Categorycard = (input) => {
     const navigate = useNavigate();
     const classes = useStyles();
-    const { thumburl, title, under, category, streamer, view_count, embed_url } = input;
+    const { thumburl, title, category, streamer, view_count, embed_url } = input;
+    console.log(view_count)
     return (
         <Box>
             <ButtonBase
                 className={classes.cardAction}
                 onClick={
-                    () => navigate('/FocusView', { state: { under: under, category: category, streamer: streamer, title: title, embed_url: embed_url } })
+                    () => navigate('/FocusView', { state: { category: category, streamer: streamer, title: title, embed_url: embed_url } })
                 }>
                 <Card sx={{ backgroundColor: colors.primary }} className={classes.card} >
                     <CardContent sx={{ height: 80 }} title='Twitch Streamer Name' >
                         <Typography sx={{ color: colors.white }} variant="h5" component="div">
-                            {title}
+                            {title} 
                         </Typography>
-                        {condSub(under, category, streamer)}
-                    </CardContent>
-                    <CardMedia
-                        component="img"
-                        height="300" // should not hard code this
-                        src={thumburl}
-                        alt="thumbnail˝"
-                    />
-                    <div>
+                        <div>
                         <Grid
                             container
                             direction="row"
@@ -88,16 +81,23 @@ const Categorycard = (input) => {
                             height={40}
                             columnSpacing={{ md: 3.5 }}
                         >
-                            <Grid item sx={{ ml: 1 }} xs={0.5}>
+                            <Grid item xs={0.5}>
                                 <VisibilityIcon sx={{ color: colors.white }} ></VisibilityIcon>
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography sx={{ color: colors.white }} component="div">
-                                    {view_count}
+                                   {view_count}
                                 </Typography>
                             </Grid>
                         </Grid>
                     </div>
+                    </CardContent>
+                    <CardMedia
+                        component="img"
+                        height="300" // should not hard code this
+                        src={thumburl}
+                        alt="thumbnail˝"
+                    />
                 </Card>
             </ButtonBase>
         </Box>

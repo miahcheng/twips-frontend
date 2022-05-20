@@ -21,7 +21,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import ShareIcon from '@mui/icons-material/Share';
 import Sharebuttonbar from "./sharebuttonbar.tsx";
-
 // card for home page
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -66,7 +65,10 @@ const theme = createTheme({
 const Cliptoolbar = (input) => {
     const { embed_url } = input;
     const classes = useStyles();
+
+
     return (
+
         <ThemeProvider theme={theme}>
             <Box>
                 <Grid container>
