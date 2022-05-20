@@ -28,7 +28,6 @@ export default function Login({ setToken }) {
       password: data.get('password'),
     });
     await LoginHandler(data.get('email'), data.get('password'), setToken)
-    await GetUserHandler();
   };
 
   return (

@@ -8,6 +8,7 @@ import Categoryheader from "../components/categoryheader.tsx"
 import { Category } from "@mui/icons-material";
 import mockData from "../mockData/MockData.tsx";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { GetUserHandler } from "../handlers/userHandlers.tsx";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -50,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 const Feed = () => {
+    GetUserHandler()
     const classes = useStyles();
     const gameurls = [mockData['categories']].map((games, i) => Object.values(games).map((toclip, i) => toclip.clips))
     const streamurls = [mockData['creators']].map((games, i) => Object.values(games).map((toclip, i) => toclip.clips))

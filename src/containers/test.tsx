@@ -1,4 +1,4 @@
-import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar } from "@mui/material";
+import { Card, Paper, Container, Box, Grid, Typography, CardMedia, CardContent, CardHeader, Avatar, TextField } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles';
 import React, { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import Streamercard from "../components/streamercard.tsx";
 import { responsiveFontSizes } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import "typeface-roboto";
-import { GetUserHandler } from "../handlers/userHandlers.tsx";
+import { GetUserHandler, GetUserInfoHandler, ChangeUserInfoHandler } from "../handlers/userHandlers.tsx";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -58,13 +58,19 @@ const useStyles = makeStyles((theme: Theme) =>
 const Test = () => {
     const classes = useStyles();
     const [user, setUser] = useState();
+    const [profiledesc, setprofiledesc] = useState();
     useEffect(() => {
         async function fetchMyAPI() {
-           console.log(sessionStorage.getItem("User"))
-           await setUser(JSON.parse(sessionStorage.getItem("User")))
+            console.log(sessionStorage.getItem("User"))
+            await setUser(JSON.parse(sessionStorage.getItem("User")))
+            await GetUserInfoHandler(setprofiledesc, JSON.parse(sessionStorage.getItem("User")).username)
         }
         fetchMyAPI()
     }, []);
+    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+       await ChangeUserInfoHandler(event.target.value, user?.username)
+       setprofiledesc(event.target.value)
+    };
     return (
 
         <Container
@@ -84,15 +90,17 @@ const Test = () => {
                     </ThemeProvider> */}
                 {/* </CardContent> */}
                 <CardContent style={{ backgroundColor: "black" }}>
-                    <Typography className={classes.user} variant="h5" style={{ color: '#7E52A0' }}>{mockData.user.TwitchName}</Typography>
-                    <Typography className={classes.name} variant="body1" style={{ color: 'white' }}>{mockData.user.FirstName + " " + mockData.user.LastName}</Typography>
+                    <Typography className={classes.user} variant="h5" style={{ color: '#7E52A0' }}>  {user?.username}</Typography>
                     <Typography className={classes.follower} variant="body1" style={{ color: 'white' }}>
-                        {user?.username}
-                        Hello 
                     </Typography>
                     <Box sx={{ p: 1 }}></Box>
                     <Typography variant="body1" style={{ color: 'white' }}>
-                        I indulge in a lot of Twitch
+                        <TextField
+                            id="outlined-name"
+                            label="Name"
+                            value={profiledesc}
+                            onChange={handleChange}
+                        />
                     </Typography>
                 </CardContent>
             </Card>

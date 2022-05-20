@@ -14,17 +14,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NewUserHandler } from '../handlers/userHandlers.tsx';
+import { NewUserHandler, SetUserInfoHandler } from '../handlers/userHandlers.tsx';
 import { useNavigate } from 'react-router-dom';
 import { Navigation } from '@mui/icons-material';
 const theme = createTheme();
 
 export default function NewUser() {
   const navigate = useNavigate();
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        NewUserHandler(data.get('email'), data.get('password'), data.get('passwordconf'), data.get('username'))
+        const result = await NewUserHandler(data.get('email'), data.get('password'), data.get('passwordconf'), data.get('username'))
     };
     const base = "https://api.twipsbits.me";
     const user = "/user/";
