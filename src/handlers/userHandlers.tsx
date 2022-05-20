@@ -103,7 +103,13 @@ export async function GetUserInfoHandler(setUser, username) {
         }
     ).then(response => response.text()).then(data => {
         console.log(data)
-        setUser(JSON.parse(data).descrip)
+        const descrip = JSON.parse(data).descrip
+        if(descrip == " ") {
+            setUser("Create your first profile description")
+        }
+        else{
+            setUser(descrip);
+        }
         return data
     })
 };

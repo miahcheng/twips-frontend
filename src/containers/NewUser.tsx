@@ -76,7 +76,7 @@ export default function NewUser() {
                             fullWidth
                             name="passwordconf"
                             label="PasswordConf"
-                            type="passwordConf"
+                            type="password"
                             id="passwordConf"
                             autoComplete="current-passwordconf"
                         />

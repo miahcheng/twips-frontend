@@ -52,12 +52,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         streamerCardsPage: {
             marginTop: "50px;"
-<<<<<<< HEAD
-        },
-        input: {
-            color: '#7E52A0'
-=======
->>>>>>> origin/morestyle
         }
     })
 );
@@ -158,6 +152,7 @@ const Test = () => {
                                 placeholder="Bio"
                                 variant="filled"
                                 size="small"
+                                multiline
                                 value={profiledesc}
                                 inputProps={{ style: { color: "white" }} }
                                 style={{ backgroundColor: 'black' }}
